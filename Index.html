@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Civil Engineer Portfolio | Tariku Tulu</title>
+  <meta name="description" content="Professional civil engineer portfolio showcasing construction projects, structural design, and project management experience" />
+  <!-- Font Awesome 6 (free) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    /* ----- RESET & VARIABLES (Engineering theme) ----- */
+    :root {
+      --primary-color: #2c5f8a;
+      --secondary-color: #e8a735;
+      --dark-color: #1a3a4f;
+      --light-color: #f4f7f9;
+      --text-color: #333;
+      --text-light: #666;
+      --white: #fff;
+      --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: var(--text-color);
+      background-color: var(--white);
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: var(--primary-color);
+      transition: var(--transition);
+    }
+    a:hover {
+      color: var(--secondary-color);
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* buttons */
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-weight: 600;
+      text-align: center;
+      transition: var(--transition);
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary {
+      background-color: var(--primary-color);
+      color: var(--white);
+    }
+    .btn-primary:hover {
+      background-color: #1e4668;
+      transform: translateY(-3px);
+      color: #fff;
+    }
+    .btn-secondary {
+      background-color: transparent;
+      color: var(--primary-color);
+      border: 2px solid var(--primary-color);
+    }
+    .btn-secondary:hover {
+      background-color: var(--primary-color);
+      color: var(--white);
+      transform: translateY(-3px);
+    }
+    .btn-success {
+      background-color: #27ae60;
+      color: var(--white);
+    }
+    .btn-success:hover {
+      background-color: #1e8449;
+      transform: translateY(-3px);
+      color: #fff;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      text-align: center;
+      position: relative;
+      color: var(--dark-color);
+    }
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background-color: var(--primary-color);
+      border-radius: 2px;
+    }
+
+    /* ----- HEADER ----- */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 0;
+      background-color: var(--white);
+      box-shadow: var(--box-shadow);
+      z-index: 1000;
+      transition: var(--transition);
+    }
+    .header.scrolled {
+      padding: 15px 0;
+      background-color: rgba(255, 255, 255, 0.95);
+    }
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--dark-color);
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-list {
+      display: flex;
+    }
+    .nav-list li {
+      margin-left: 30px;
+    }
+    .nav-list a {
+      color: var(--dark-color);
+      font-weight: 600;
+      position: relative;
+    }
+    .nav-list a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--primary-color);
+      transition: var(--transition);
+    }
+    .nav-list a:hover::after {
+      width: 100%;
+    }
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--dark-color);
+      cursor: pointer;
+    }
+
+    /* ----- HERO ----- */
+    .hero {
+      padding: 150px 0 100px;
+      background: linear-gradient(135deg, var(--light-color) 0%, #e0e8f0 100%);
+    }
+    .hero-content {
+      flex: 1;
+    }
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 15px;
+      color: var(--dark-color);
+    }
+    .hero h1 span {
+      color: var(--primary-color);
+    }
+    .hero h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: var(--text-light);
+      font-weight: 400;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+      max-width: 600px;
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .hero-image {
+      flex: 1;
+      text-align: center;
+    }
+    .hero-image img {
+      max-width: 400px;
+      border-radius: 20px;
+      box-shadow: var(--box-shadow);
+    }
+
+    /* ----- ABOUT ----- */
+    .about {
+      padding: 100px 0;
+      background-color: var(--white);
+    }
+    .about-content {
+      display: flex;
+      gap: 50px;
+      align-items: center;
+    }
+    .about-text {
+      flex: 2;
+    }
+    .about-text p {
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+    }
+    .about-links {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      margin-top: 30px;
+      flex-wrap: wrap;
+    }
+    .social-links {
+      display: flex;
+      gap: 15px;
+    }
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: var(--light-color);
+      color: var(--dark-color);
+      transition: var(--transition);
+      font-size: 1.2rem;
+    }
+    .social-links a:hover {
+      background-color: var(--primary-color);
+      color: var(--white);
+      transform: translateY(-3px);
+    }
+    .about-skills {
+      flex: 1;
+      background-color: var(--light-color);
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: var(--box-shadow);
+    }
+    .about-skills h3 {
+      margin-bottom: 20px;
+      color: var(--dark-color);
+    }
+    .about-skills ul li {
+      margin-bottom: 10px;
+      position: relative;
+      padding-left: 25px;
+    }
+    .about-skills ul li::before {
+      content: '▹';
+      position: absolute;
+      left: 0;
+      color: var(--primary-color);
+    }
+
+    /* ----- SKILLS ----- */
+    .skills {
+      padding: 100px 0;
+      background-color: var(--light-color);
+    }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+    }
+    .skill-item {
+      background-color: var(--white);
+      padding: 30px 20px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: var(--box-shadow);
+      transition: var(--transition);
+    }
+    .skill-item:hover {
+      transform: translateY(-10px);
+    }
+    .skill-item i {
+      font-size: 3rem;
+      margin-bottom: 15px;
+      color: var(--primary-color);
+    }
+    .skill-item h3 {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+
+    /* ----- PROJECTS ----- */
+    .projects {
+      padding: 100px 0;
+      background-color: var(--white);
+    }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+    }
+    .project-card {
+      background-color: var(--light-color);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: var(--box-shadow);
+      transition: var(--transition);
+    }
+    .project-card:hover {
+      transform: translateY(-10px);
+    }
+    .project-image {
+      height: 220px;
+      overflow: hidden;
+    }
+    .project-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+    .project-card:hover .project-image img {
+      transform: scale(1.1);
+    }
+    .project-content {
+      padding: 20px;
+    }
+    .project-content h3 {
+      margin-bottom: 10px;
+      color: var(--dark-color);
+    }
+    .project-content p {
+      margin-bottom: 15px;
+      color: var(--text-light);
+    }
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+    .project-tag {
+      background-color: var(--primary-color);
+      color: var(--white);
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+    }
+    .project-links {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+    .project-links a {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-weight: 600;
+    }
+    .project-links a i {
+      transition: var(--transition);
+    }
+    .project-links a:hover i {
+      transform: translateX(3px);
+    }
+
+    /* ----- EXPERIENCE ----- */
+    .experience {
+      padding: 100px 0;
+      background-color: var(--light-color);
+    }
+    .timeline {
+      position: relative;
+      max-width: 800px;
+      margin: 50px auto 0;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 2px;
+      height: 100%;
+      background-color: var(--primary-color);
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 50px;
+      width: 100%;
+    }
+    .timeline-item:nth-child(odd) {
+      padding-right: calc(50% + 30px);
+      text-align: right;
+    }
+    .timeline-item:nth-child(even) {
+      padding-left: calc(50% + 30px);
+      text-align: left;
+    }
+    .timeline-dot {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: var(--primary-color);
+      border: 3px solid var(--white);
+    }
+    .timeline-content {
+      background-color: var(--white);
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: var(--box-shadow);
+    }
+    .timeline-date {
+      display: inline-block;
+      margin-bottom: 10px;
+      color: var(--primary-color);
+      font-weight: 600;
+    }
+    .timeline-title {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      color: var(--dark-color);
+    }
+    .timeline-company {
+      font-size: 1.1rem;
+      margin-bottom: 15px;
+      color: var(--text-light);
+    }
+    .cert-badge {
+      display: inline-block;
+      background: var(--secondary-color);
+      color: var(--dark-color);
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-top: 10px;
+    }
+    .cert-download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 12px;
+      padding: 8px 16px;
+      background-color: #27ae60;
+      color: #fff;
+      border-radius: 5px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: var(--transition);
+    }
+    .cert-download-btn:hover {
+      background-color: #1e8449;
+      transform: translateY(-2px);
+      color: #fff;
+    }
+
+    /* ----- CONTACT ----- */
+    .contact {
+      padding: 100px 0;
+      background-color: var(--white);
+    }
+    .contact-content {
+      display: flex;
+      gap: 50px;
+      margin-top: 50px;
+    }
+    .contact-form {
+      flex: 2;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-family: inherit;
+      font-size: 1rem;
+      transition: var(--transition);
+    }
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 3px rgba(44, 95, 138, 0.2);
+    }
+    .form-group textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+    .contact-info {
+      flex: 1;
+      background-color: var(--light-color);
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: var(--box-shadow);
+    }
+    .contact-info h3 {
+      margin-bottom: 20px;
+      color: var(--dark-color);
+    }
+    .contact-info ul li {
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .contact-info ul li i {
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--primary-color);
+      color: var(--white);
+      border-radius: 50%;
+      font-size: 0.9rem;
+    }
+    .contact-social {
+      display: flex;
+      gap: 15px;
+      margin-top: 30px;
+      flex-wrap: wrap;
+    }
+    .contact-social a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background-color: var(--dark-color);
+      color: var(--white);
+      transition: var(--transition);
+      font-size: 1.3rem;
+    }
+    .contact-social a:hover {
+      background-color: var(--primary-color);
+      transform: translateY(-3px);
+      color: #fff;
+    }
+
+    /* ----- FOOTER ----- */
+    .footer {
+      padding: 30px 0;
+      background-color: var(--dark-color);
+      color: var(--white);
+      text-align: center;
+    }
+    .footer p {
+      margin-bottom: 10px;
+    }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+    .footer-links a {
+      color: var(--white);
+    }
+    .footer-links a:hover {
+      color: var(--primary-color);
+    }
+
+    /* ----- RESPONSIVE ----- */
+    @media (max-width: 992px) {
+      .hero-content,
+      .about-content,
+      .contact-content {
+        flex-direction: column;
+      }
+      .hero-image {
+        margin-top: 50px;
+      }
+      .timeline::before {
+        left: 30px;
+      }
+      .timeline-item:nth-child(odd),
+      .timeline-item:nth-child(even) {
+        padding-left: 80px;
+        padding-right: 0;
+        text-align: left;
+      }
+      .timeline-dot {
+        left: 20px;
+      }
+    }
+    @media (max-width: 768px) {
+      .nav-list {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background-color: var(--white);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: var(--transition);
+      }
+      .nav-list.active {
+        left: 0;
+      }
+      .nav-list li {
+        margin: 15px 0;
+      }
+      .nav-toggle {
+        display: block;
+      }
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      .hero h2 {
+        font-size: 1.5rem;
+      }
+      .hero-buttons {
+        flex-direction: column;
+        gap: 15px;
+      }
+      .section-title {
+        font-size: 2rem;
+      }
+    }
+    @media (max-width: 576px) {
+      .container {
+        width: 95%;
+      }
+      .skills-grid {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      }
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container">
+      <a href="#" class="logo">Eng. Tariku Tulu</a>
+      <nav class="nav">
+        <ul class="nav-list">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button class="nav-toggle" aria-label="Toggle navigation">
+          <i class="fas fa-bars"></i>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <div class="container" style="display: flex; flex-wrap: wrap; align-items: center;">
+      <div class="hero-content">
+        <h1>Hi, I'm <span>Tariku Tulu</span></h1>
+        <h2>Civil Engineering Student | Aspiring Structural Designer</h2>
+        <p>Passionate civil engineering student at Jimma University with hands-on internship experience at Ovid Construction PLC. Dedicated to structural design, construction supervision, and sustainable infrastructure.</p>
+        <div class="hero-buttons">
+          <a href="#projects" class="btn btn-primary">View My Projects</a>
+          <a href="#contact" class="btn btn-secondary">Contact Me</a>
+          <a href="#experience" class="btn btn-success"><i class="fas fa-certificate"></i> View Certificate</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="https://via.placeholder.com/400x400/2c5f8a/ffffff?text=Tariku+Tulu" alt="Tariku Tulu Civil Engineer">
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="about">
+    <div class="container">
+      <h2 class="section-title">About Me</h2>
+      <div class="about-content">
+        <div class="about-text">
+          <p>I am a dedicated Civil Engineering student at <strong>Jimma University</strong>, graduating in <strong>2027</strong>. My passion lies in structural design, construction supervision, and creating sustainable infrastructure that serves communities effectively.</p>
+          <p>I have completed an internship at <strong>Ovid Construction PLC</strong> from March to June 2026, where I gained hands-on experience in construction site supervision, quantity surveying, quality control, and project coordination.</p>
+          <div class="about-links">
+            <a href="#" class="btn btn-primary">Download Resume</a>
+            <a href="My internship certificate.pdf" download class="btn btn-success"><i class="fas fa-file-pdf"></i> Download Certificate</a>
+            <div class="social-links">
+              <a href="https://www.linkedin.com/in/tariku-t-07a67033b?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+              <a href="https://t.me/engnr_tech" target="_blank" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
+              <a href="https://tiktok.com/@tare_t0" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="about-skills">
+          <h3>Core Competencies</h3>
+          <ul>
+            <li>Structural Analysis & Design</li>
+            <li>Construction Site Supervision</li>
+            <li>AutoCAD & Revit</li>
+            <li>STAAD Pro & ETABS</li>
+            <li>Quality Control & Assurance</li>
+            <li>Quantity Surveying</li>
+            <li>Project Coordination</li>
+            <li>Contract Documentation</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="skills">
+    <div class="container">
+      <h2 class="section-title">Technical Skills & Software</h2>
+      <div class="skills-grid" id="skillsGrid"></div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="projects">
+    <div class="container">
+      <h2 class="section-title">Featured Projects</h2>
+      <div class="projects-grid" id="projectsGrid"></div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="experience">
+    <div class="container">
+      <h2 class="section-title">Professional Experience</h2>
+      <div class="timeline" id="timelineContainer"></div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <h2 class="section-title">Get In Touch</h2>
+      <div class="contact-content">
+        <form class="contact-form" id="contactForm">
+          <div class="form-group">
+            <input type="text" placeholder="Your Name" required />
+          </div>
+          <div class="form-group">
+            <input type="email" placeholder="Your Email" required />
+          </div>
+          <div class="form-group">
+            <input type="text" placeholder="Subject" />
+          </div>
+          <div class="form-group">
+            <textarea placeholder="Your Message" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+        <div class="contact-info">
+          <h3>Contact Information</h3>
+          <ul>
+            <li><i class="fas fa-envelope"></i> Taretulu5@gmail.com</li>
+            <li><i class="fas fa-phone"></i> +251902607794</li>
+            <li><i class="fas fa-map-marker-alt"></i> Addis Ababa, Ethiopia</li>
+          </ul>
+          <div class="contact-social">
+            <a href="https://www.linkedin.com/in/tariku-t-07a67033b?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://t.me/engnr_tech" target="_blank" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
+            <a href="https://tiktok.com/@tare_t0" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+            <a href="https://t.me/ENG_TTG" target="_blank" aria-label="Telegram Official"><i class="fas fa-paper-plane"></i></a>
+          </div>
+          <p style="margin-top: 20px; font-size: 0.9rem; color: var(--text-light);">
+            <i class="fas fa-paper-plane" style="color: var(--primary-color);"></i> Telegram: @ ENG_TTG
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> Eng. Tariku Tulu. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Set current year
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      // Mobile toggle
+      const navToggle = document.querySelector('.nav-toggle');
+      const navList = document.querySelector('.nav-list');
+      navToggle.addEventListener('click', function() {
+        navList.classList.toggle('active');
+        this.querySelector('i').classList.toggle('fa-times');
+        this.querySelector('i').classList.toggle('fa-bars');
+      });
+      document.querySelectorAll('.nav-list a').forEach(link => {
+        link.addEventListener('click', function() {
+          navList.classList.remove('active');
+          navToggle.querySelector('i').classList.remove('fa-times');
+          navToggle.querySelector('i').classList.add('fa-bars');
+        });
+      });
+
+      // Header scroll effect
+      const header = document.querySelector('.header');
+      window.addEventListener('scroll', function() {
+        header.classList.toggle('scrolled', window.scrollY > 100);
+      });
+
+      // Smooth scroll
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href');
+          if (targetId === '#') return;
+          const target = document.querySelector(targetId);
+          if (target) {
+            window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
+          }
+        });
+      });
+
+      // ---------- DATA ----------
+      const skillsData = [
+        { name: 'AutoCAD', icon: 'fa-drafting-compass', color: '#2c5f8a' },
+        { name: 'Revit', icon: 'fa-building', color: '#e8a735' },
+        { name: 'STAAD Pro', icon: 'fa-chart-line', color: '#2c5f8a' },
+        { name: 'ETABS', icon: 'fa-calculator', color: '#e8a735' },
+        { name: 'SAP2000', icon: 'fa-chart-bar', color: '#2c5f8a' },
+        { name: 'Primavera P6', icon: 'fa-tasks', color: '#e8a735' },
+        { name: 'Microsoft Project', icon: 'fa-project-diagram', color: '#2c5f8a' },
+        { name: 'Excel Advanced', icon: 'fa-table', color: '#e8a735' },
+        { name: 'GIS', icon: 'fa-map', color: '#2c5f8a' },
+        { name: 'Civil 3D', icon: 'fa-road', color: '#e8a735' },
+        { name: 'SketchUp', icon: 'fa-cube', color: '#2c5f8a' },
+        { name: 'Navisworks', icon: 'fa-vr-cardboard', color: '#e8a735' }
+      ];
+
+      const projectsData = [
+        {
+          title: 'Commercial Complex Construction',
+          description: 'Assisted in structural design and site supervision of a 12-story commercial building with parking facility during internship at Ovid Construction PLC.',
+          tags: ['Structural Design', 'Site Supervision', 'AutoCAD'],
+          image: 'https://via.placeholder.com/600x400/2c5f8a/ffffff?text=Commercial+Complex',
+          liveLink: '#',
+          codeLink: '#'
+        },
+        {
+          title: 'Residential Subdivision Development',
+          description: 'Participated in the development of 200+ residential units including road networks, drainage systems, and utility infrastructure.',
+          tags: ['Site Development', 'Infrastructure', 'Civil 3D'],
+          image: 'https://via.placeholder.com/600x400/1a3a4f/ffffff?text=Subdivision',
+          liveLink: '#',
+          codeLink: '#'
+        },
+        {
+          title: 'Bridge Rehabilitation Project',
+          description: 'Academic project on structural assessment and rehabilitation of aging bridges using carbon fiber reinforcement techniques.',
+          tags: ['Bridge Engineering', 'Rehabilitation', 'STAAD Pro'],
+          image: 'https://via.placeholder.com/600x400/e8a735/ffffff?text=Bridge+Rehab',
+          liveLink: '#',
+          codeLink: '#'
+        },
+        {
+          title: 'Water Supply System Design',
+          description: 'Designed a water distribution network for a rural community as part of academic coursework. Used EPANET and GIS for analysis.',
+          tags: ['Environmental Engineering', 'Hydraulics', 'GIS'],
+          image: 'https://via.placeholder.com/600x400/2c5f8a/ffffff?text=Water+Supply',
+          liveLink: '#',
+          codeLink: '#'
+        },
+        {
+          title: 'Highway Alignment Project',
+          description: 'Performed highway alignment and geometric design using AutoCAD Civil 3D for a 15km stretch of road.',
+          tags: ['Highway Design', 'Transportation', 'AutoCAD Civil 3D'],
+          image: 'https://via.placeholder.com/600x400/e8a735/ffffff?text=Highway',
+          liveLink: '#',
+          codeLink: '#'
+        },
+        {
+          title: 'Green Building Design',
+          description: 'Academic project focused on sustainable building design incorporating energy-efficient systems and locally sourced materials.',
+          tags: ['Sustainable Design', 'Green Building', 'Revit'],
+          image: 'https://via.placeholder.com/600x400/1a3a4f/ffffff?text=Green+Building',
+          liveLink: '#',
+          codeLink: '#'
+        }
+      ];
+
+      // ***** UPDATED EXPERIENCE DATA - WITH CERTIFICATE DOWNLOAD *****
+      const experienceData = [
+        {
+          date: 'March 2026 - June 2026',
+          title: 'Intern Civil Engineer',
+          company: 'Ovid Construction PLC',
+          description: 'Successfully completed internship with outstanding performance. Gained hands-on experience in construction site supervision, quantity surveying, quality control, and project coordination. Assisted senior engineers in structural inspections, material testing, and progress monitoring.',
+          certificate: true
+        },
+        {
+          date: '2023 - 2027 (Expected)',
+          title: 'BSc in Civil Engineering',
+          company: 'Jimma University',
+          description: 'Pursuing Bachelor of Science in Civil Engineering. Coursework includes Structural Analysis, Reinforced Concrete Design, Steel Structures, Geotechnical Engineering, Hydraulics, and Construction Management. Expected graduation in 2027.'
+        }
+      ];
+
+      // Render Skills
+      const skillsGrid = document.getElementById('skillsGrid');
+      skillsData.forEach(s => {
+        const div = document.createElement('div');
+        div.className = 'skill-item';
+        div.innerHTML = `<i class="fas ${s.icon}" style="color:${s.color}"></i><h3>${s.name}</h3>`;
+        skillsGrid.appendChild(div);
+      });
+
+      // Render Projects
+      const projectsGrid = document.getElementById('projectsGrid');
+      projectsData.forEach(p => {
+        const card = document.createElement('div');
+        card.className = 'project-card';
+        card.innerHTML = `
+          <div class="project-image"><img src="${p.image}" alt="${p.title}"></div>
+          <div class="project-content">
+            <h3>${p.title}</h3>
+            <p>${p.description}</p>
+            <div class="project-tags">${p.tags.map(t => `<span class="project-tag">${t}</span>`).join('')}</div>
+            <div class="project-links">
+              <a href="${p.liveLink}" target="_blank"><i class="fas fa-external-link-alt"></i> View Details</a>
+              <a href="${p.codeLink}" target="_blank"><i class="fas fa-file-pdf"></i> Project Report</a>
+            </div>
+          </div>
+        `;
+        projectsGrid.appendChild(card);
+      });
+
+      // Render Experience
+      const timeline = document.getElementById('timelineContainer');
+      experienceData.forEach((exp) => {
+        const item = document.createElement('div');
+        item.className = 'timeline-item';
+        
+        let badgeHTML = '';
+        let downloadBtn = '';
+        if (exp.certificate) {
+          badgeHTML = `<div class="cert-badge"><i class="fas fa-certificate"></i> Certificate Received</div>`;
+          downloadBtn = `
+            <a href="My internship certificate.pdf" download class="cert-download-btn">
+              <i class="fas fa-file-pdf"></i> Download Certificate
+            </a>
+          `;
+        }
+        
+        item.innerHTML = `
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-date">${exp.date}</span>
+            <h3 class="timeline-title">${exp.title}</h3>
+            <h4 class="timeline-company">${exp.company}</h4>
+            <p>${exp.description}</p>
+            ${badgeHTML}
+            ${downloadBtn}
+          </div>
+        `;
+        timeline.appendChild(item);
+      });
+
+      // Contact form
+      document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Thank you for your message! I will get back to you soon.');
+        this.reset();
+      });
+
+      // Scroll animation
+      const animElements = document.querySelectorAll('.skill-item, .project-card, .timeline-item');
+      animElements.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      });
+
+      function animateOnScroll() {
+        const trigger = window.innerHeight / 1.3;
+        animElements.forEach(el => {
+          const rect = el.getBoundingClientRect().top;
+          if (rect < trigger) {
+            el.style.opacity = '1';
+            el.style.transform = 'translateY(0)';
+          }
+        });
+      }
+      window.addEventListener('scroll', animateOnScroll);
+      animateOnScroll();
+    });
+  </script>
+</body>
+</html>
