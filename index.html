@@ -35,7 +35,7 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       line-height: 1.6;
       color: var(--text-color);
-      background-color: var(--white);
+      background-color: var(--black);
       overflow-x: hidden;
     }
 
@@ -95,6 +95,18 @@
     }
     .btn-success:hover {
       background-color: #1e8449;
+      transform: translateY(-3px);
+      color: #fff;
+    }
+    /* custom contact button color – vibrant orange */
+    .btn-contact {
+      background-color: #e67e22;
+      color: var(--white);
+      border: 2px solid #e67e22;
+    }
+    .btn-contact:hover {
+      background-color: #d35400;
+      border-color: #d35400;
       transform: translateY(-3px);
       color: #fff;
     }
@@ -214,9 +226,13 @@
       text-align: center;
     }
     .hero-image img {
-      max-width: 400px;
+      max-width: 380px;
+      width: 100%;
       border-radius: 20px;
       box-shadow: var(--box-shadow);
+      object-fit: cover;
+      aspect-ratio: 1/1;
+      background: #e0e8f0;
     }
 
     /* ----- ABOUT ----- */
@@ -697,17 +713,16 @@
   <section id="home" class="hero">
     <div class="container" style="display: flex; flex-wrap: wrap; align-items: center;">
       <div class="hero-content">
-        <h1>Hi, I'm <span>Tariku Tulu</span></h1>
-        <h2>Civil Engineering Student | Aspiring Structural Designer</h2>
-        <p>Passionate civil engineering student at Jimma University with hands-on internship experience at Ovid Construction PLC. Dedicated to structural design, construction supervision, and sustainable infrastructure.</p>
+        <h1>welcome, I'm <span> Eng Tariku Tulu</span></h1>
+        <p> I'm Civil Engineering Student at Jimma University with hands-on internship experience at Ovid Construction PLC. Dedicated to structural design, construction supervision, and sustainable infrastructure.</p>
         <div class="hero-buttons">
           <a href="#projects" class="btn btn-primary">View My Projects</a>
-          <a href="#contact" class="btn btn-secondary">Contact Me</a>
           <a href="#experience" class="btn btn-success"><i class="fas fa-certificate"></i> View Certificate</a>
+          <a href="#contact" class="btn btn-contact">Contact Me</a>
         </div>
       </div>
       <div class="hero-image">
-        <img src="https://via.placeholder.com/400x400/2c5f8a/ffffff?text=Tariku+Tulu" alt="Tariku Tulu Civil Engineer">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='%232c5f8a'/%3E%3Ctext x='50%25' y='50%25' font-family='Arial' font-size='24' fill='white' text-anchor='middle' dy='.3em'%3ETariku%3C/text%3E%3C/svg%3E" alt="Tariku Tulu Civil Engineer" id="profilePhoto" />
       </div>
     </div>
   </section>
@@ -731,14 +746,14 @@
           </div>
         </div>
         <div class="about-skills">
-          <h3>Core Competencies</h3>
+          <h3>My overall skills </h3>
           <ul>
             <li>Structural Analysis & Design</li>
-            <li>Construction Site Supervision</li>
-            <li>AutoCAD & Revit</li>
             <li>STAAD Pro & ETABS</li>
-            <li>Quality Control & Assurance</li>
+            <li>AutoCAD & Revit</li>
             <li>Quantity Surveying</li>
+            <li>Quality Control & Assurance</li>
+            <li>Construction Site Supervision</li>
             <li>Project Coordination</li>
             <li>Contract Documentation</li>
           </ul>
@@ -783,13 +798,11 @@
           <div class="form-group">
             <input type="email" placeholder="Your Email" required />
           </div>
-          <div class="form-group">
-            <input type="text" placeholder="Subject" />
-          </div>
+
           <div class="form-group">
             <textarea placeholder="Your Message" required></textarea>
           </div>
-          <button type="submit" class="btn btn-primary">Send Message</button>
+          <button type="submit" class="btn btn-contact">Send Message</button>
         </form>
         <div class="contact-info">
           <h3>Contact Information</h3>
@@ -804,9 +817,7 @@
             <a href="https://tiktok.com/@tare_t0" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
             <a href="https://t.me/ENG_TTG" target="_blank" aria-label="Telegram Official"><i class="fas fa-paper-plane"></i></a>
           </div>
-          <p style="margin-top: 20px; font-size: 0.9rem; color: var(--text-light);">
-            <i class="fas fa-paper-plane" style="color: var(--primary-color);"></i> Telegram: @ ENG_TTG
-          </p>
+          
         </div>
       </div>
     </div>
@@ -866,25 +877,24 @@
       // ---------- DATA ----------
       const skillsData = [
         { name: 'AutoCAD', icon: 'fa-drafting-compass', color: '#2c5f8a' },
+        { name: 'ETABS', icon: 'fa-calculator', color: '#e8a735' },
         { name: 'Revit', icon: 'fa-building', color: '#e8a735' },
         { name: 'STAAD Pro', icon: 'fa-chart-line', color: '#2c5f8a' },
-        { name: 'ETABS', icon: 'fa-calculator', color: '#e8a735' },
-        { name: 'SAP2000', icon: 'fa-chart-bar', color: '#2c5f8a' },
+        { name: 'ARCHICAD', icon: 'fa-cubes', color: '#e67e22' },  // added ARCHICAD
+        { name: 'Civil 3D', icon: 'fa-road', color: '#e8a735' },
         { name: 'Primavera P6', icon: 'fa-tasks', color: '#e8a735' },
         { name: 'Microsoft Project', icon: 'fa-project-diagram', color: '#2c5f8a' },
         { name: 'Excel Advanced', icon: 'fa-table', color: '#e8a735' },
         { name: 'GIS', icon: 'fa-map', color: '#2c5f8a' },
-        { name: 'Civil 3D', icon: 'fa-road', color: '#e8a735' },
-        { name: 'SketchUp', icon: 'fa-cube', color: '#2c5f8a' },
-        { name: 'Navisworks', icon: 'fa-vr-cardboard', color: '#e8a735' }
       ];
 
+      // ----- REPLACE WITH PINTEREST-STYLE IMAGES (high quality) -----
       const projectsData = [
         {
           title: 'Commercial Complex Construction',
           description: 'Assisted in structural design and site supervision of a 12-story commercial building with parking facility during internship at Ovid Construction PLC.',
           tags: ['Structural Design', 'Site Supervision', 'AutoCAD'],
-          image: 'https://via.placeholder.com/600x400/2c5f8a/ffffff?text=Commercial+Complex',
+          image: 'https://images.pexels.com/photos/1617805/pexels-photo-1617805.jpeg?auto=compress&cs=tinysrgb&w=600',
           liveLink: '#',
           codeLink: '#'
         },
@@ -892,7 +902,7 @@
           title: 'Residential Subdivision Development',
           description: 'Participated in the development of 200+ residential units including road networks, drainage systems, and utility infrastructure.',
           tags: ['Site Development', 'Infrastructure', 'Civil 3D'],
-          image: 'https://via.placeholder.com/600x400/1a3a4f/ffffff?text=Subdivision',
+          image: 'https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=600',
           liveLink: '#',
           codeLink: '#'
         },
@@ -900,15 +910,7 @@
           title: 'Bridge Rehabilitation Project',
           description: 'Academic project on structural assessment and rehabilitation of aging bridges using carbon fiber reinforcement techniques.',
           tags: ['Bridge Engineering', 'Rehabilitation', 'STAAD Pro'],
-          image: 'https://via.placeholder.com/600x400/e8a735/ffffff?text=Bridge+Rehab',
-          liveLink: '#',
-          codeLink: '#'
-        },
-        {
-          title: 'Water Supply System Design',
-          description: 'Designed a water distribution network for a rural community as part of academic coursework. Used EPANET and GIS for analysis.',
-          tags: ['Environmental Engineering', 'Hydraulics', 'GIS'],
-          image: 'https://via.placeholder.com/600x400/2c5f8a/ffffff?text=Water+Supply',
+          image: 'https://images.pexels.com/photos/2360840/pexels-photo-2360840.jpeg?auto=compress&cs=tinysrgb&w=600',
           liveLink: '#',
           codeLink: '#'
         },
@@ -916,7 +918,7 @@
           title: 'Highway Alignment Project',
           description: 'Performed highway alignment and geometric design using AutoCAD Civil 3D for a 15km stretch of road.',
           tags: ['Highway Design', 'Transportation', 'AutoCAD Civil 3D'],
-          image: 'https://via.placeholder.com/600x400/e8a735/ffffff?text=Highway',
+          image: 'https://images.pexels.com/photos/1695568/pexels-photo-1695568.jpeg?auto=compress&cs=tinysrgb&w=600',
           liveLink: '#',
           codeLink: '#'
         },
@@ -924,13 +926,12 @@
           title: 'Green Building Design',
           description: 'Academic project focused on sustainable building design incorporating energy-efficient systems and locally sourced materials.',
           tags: ['Sustainable Design', 'Green Building', 'Revit'],
-          image: 'https://via.placeholder.com/600x400/1a3a4f/ffffff?text=Green+Building',
+          image: 'https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=600',
           liveLink: '#',
           codeLink: '#'
         }
       ];
 
-      // ***** UPDATED EXPERIENCE DATA - WITH CERTIFICATE DOWNLOAD *****
       const experienceData = [
         {
           date: 'March 2026 - June 2026',
@@ -962,7 +963,7 @@
         const card = document.createElement('div');
         card.className = 'project-card';
         card.innerHTML = `
-          <div class="project-image"><img src="${p.image}" alt="${p.title}"></div>
+          <div class="project-image"><img src="${p.image}" alt="${p.title}" loading="lazy"></div>
           <div class="project-content">
             <h3>${p.title}</h3>
             <p>${p.description}</p>
@@ -1034,7 +1035,16 @@
       }
       window.addEventListener('scroll', animateOnScroll);
       animateOnScroll();
+
+      // ----- REPLACE PROFILE PHOTO WITH USER-PROVIDED IMAGE -----
+      // Place your photo URL here (replace the src)
+      const profileImg = document.getElementById('profilePhoto');
+      // Use a placeholder image or set your own URL. 
+      // If you have an actual image, replace the src below.
+      profileImg.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='%232c5f8a'/%3E%3Ctext x='50%25' y='50%25' font-family='Arial' font-size='28' fill='white' text-anchor='middle' dy='.3em'%3E📐 Tariku%3C/text%3E%3C/svg%3E";
+      // Replace the line above with your actual image URL, e.g.:
+      // profileImg.src = "your-photo.jpg";
     });
   </script>
 </body>
-</html>
+  </html>
