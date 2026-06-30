@@ -981,9 +981,11 @@
           </div>
         </div>
         <div class="about-skills">
-          <h3>My skills</h3>
+          <h3>My overall skills</h3>
           <ul>
             <li>Structural Analysis & Design</li>
+            <li>STAAD Pro & ETABS</li>
+            <li>AutoCAD & Revit</li>
             <li>Quantity Surveying</li>
             <li>Quality Control & Assurance</li>
             <li>Construction Site Supervision</li>
@@ -1010,10 +1012,14 @@
       <h2 class="section-title">Featured Projects</h2>
       
       <div class="filter-buttons">
-        <button class="btn-filter active" data-filter="all">All</button>
-        <button class="btn-filter" data-filter="foundation">Foundation Design</button>
-        <button class="btn-filter" data-filter="bridge">Bridge Design</button>
-        <button class="btn-filter" data-filter="industrial">Industrial Design</button>
+        <button class="btn-filter active" data-filter="all">All Projects</button>
+        <button class="btn-filter" data-filter="commercial">Commercial</button>
+        <button class="btn-filter" data-filter="residential">Residential</button>
+        <button class="btn-filter" data-filter="bridge">Bridge</button>
+        <button class="btn-filter" data-filter="highway">Highway</button>
+        <button class="btn-filter" data-filter="green">Green Building</button>
+        <button class="btn-filter" data-filter="foundation">Foundation</button>
+        <button class="btn-filter" data-filter="industrial">Industrial</button>
         <button class="btn-filter" data-filter="posttension">Post Tension</button>
       </div>
 
@@ -1164,23 +1170,61 @@
         { name: 'Team Work', icon: 'fa-users', color: '#2ecc71' },
       ];
 
-      // Filterable Projects
+      // ALL Projects Combined (Previous + New) with Pinterest-style images
       const projectsData = [
+        // Previous Projects
+        {
+          title: 'Commercial Complex Construction',
+          description: 'Assisted in structural design and site supervision of a 12-story commercial building with parking facility during internship at Ovid Construction PLC.',
+          tags: ['Structural Design', 'Site Supervision', 'AutoCAD'],
+          image: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=600&h=400&fit=crop&crop=center',
+          category: 'commercial',
+          liveLink: '#',
+          codeLink: '#'
+        },
+        {
+          title: 'Residential Subdivision Development',
+          description: 'Participated in the development of 200+ residential units including road networks, drainage systems, and utility infrastructure.',
+          tags: ['Site Development', 'Infrastructure', 'Civil 3D'],
+          image: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=600&h=400&fit=crop&crop=center',
+          category: 'residential',
+          liveLink: '#',
+          codeLink: '#'
+        },
+        {
+          title: 'Bridge Rehabilitation Project',
+          description: 'Academic project on structural assessment and rehabilitation of aging bridges using carbon fiber reinforcement techniques.',
+          tags: ['Bridge Engineering', 'Rehabilitation', 'STAAD Pro'],
+          image: 'bridge.jpg',
+          category: 'bridge',
+          liveLink: '#',
+          codeLink: '#'
+        },
+        {
+          title: 'Highway Alignment Project',
+          description: 'Performed highway alignment and geometric design using AutoCAD Civil 3D for a 15km stretch of road.',
+          tags: ['Highway Design', 'Transportation', 'AutoCAD Civil 3D'],
+          image: 'https://images.unsplash.com/photo-1519501025264-65ba15a82390?w=600&h=400&fit=crop&crop=center',
+          category: 'highway',
+          liveLink: '#',
+          codeLink: '#'
+        },
+        {
+          title: 'Green Building Design',
+          description: 'Academic project focused on sustainable building design incorporating energy-efficient systems and locally sourced materials.',
+          tags: ['Sustainable Design', 'Green Building', 'Revit'],
+          image: 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?w=600&h=400&fit=crop&crop=center',
+          category: 'green',
+          liveLink: '#',
+          codeLink: '#'
+        },
+        // New Projects
         {
           title: 'Foundation Design',
           description: 'Comprehensive foundation design for high-rise buildings including shallow and deep foundations, soil analysis, and load-bearing capacity calculations.',
           tags: ['Foundation', 'Soil Analysis', 'Load Bearing'],
           image: 'https://images.unsplash.com/photo-1574482620811-1aa16ffe61c4?w=600&h=400&fit=crop&crop=center',
           category: 'foundation',
-          liveLink: '#',
-          codeLink: '#'
-        },
-        {
-          title: 'Bridge Design',
-          description: 'Structural design and analysis of reinforced concrete and steel bridges. Includes load distribution, seismic analysis, and aesthetic integration.',
-          tags: ['Bridge', 'Structural Analysis', 'Steel Design'],
-          image: 'https://images.unsplash.com/photo-1518186285582-2e7e4e5e2b6c?w=600&h=400&fit=crop&crop=center',
-          category: 'bridge',
           liveLink: '#',
           codeLink: '#'
         },
@@ -1197,7 +1241,7 @@
           title: 'Post Tension Construction',
           description: 'Post-tensioning system design and construction supervision for large-span structures including parking garages, bridges, and high-rise buildings.',
           tags: ['Post Tension', 'Prestressed', 'Construction'],
-          image: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=600&h=400&fit=crop&crop=center',
+          image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&h=400&fit=crop&crop=center',
           category: 'posttension',
           liveLink: '#',
           codeLink: '#'
@@ -1235,6 +1279,17 @@
       function renderProjects(category = 'all') {
         projectsGrid.innerHTML = '';
         const filtered = category === 'all' ? projectsData : projectsData.filter(p => p.category === category);
+        
+        if (filtered.length === 0) {
+          projectsGrid.innerHTML = `
+            <div style="grid-column: 1/-1; text-align: center; padding: 60px; color: var(--text-light);">
+              <i class="fas fa-search" style="font-size: 3rem; color: var(--primary-color);"></i>
+              <h3 style="margin-top: 20px; color: var(--white);">No projects found</h3>
+              <p>Try selecting a different category</p>
+            </div>
+          `;
+          return;
+        }
         
         filtered.forEach(p => {
           const card = document.createElement('div');
@@ -1335,4 +1390,4 @@
     });
   </script>
 </body>
-</html>
+      </html>
