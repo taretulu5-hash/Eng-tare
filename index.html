@@ -131,6 +131,26 @@
     .btn-email i {
       margin-right: 10px;
     }
+    .btn-filter {
+      background: var(--dark-card);
+      color: var(--text-light);
+      padding: 8px 20px;
+      border-radius: 20px;
+      border: 1px solid rgba(74, 158, 255, 0.15);
+      cursor: pointer;
+      transition: var(--transition);
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    .btn-filter:hover {
+      border-color: var(--primary-color);
+      color: var(--white);
+    }
+    .btn-filter.active {
+      background: linear-gradient(135deg, var(--primary-color), #2d7dd2);
+      color: var(--white);
+      border-color: var(--primary-color);
+    }
 
     .section-title {
       font-size: 2.8rem;
@@ -421,16 +441,22 @@
       color: var(--white);
     }
 
-    /* ----- PROJECTS ----- */
+    /* ----- PROJECTS with Filter ----- */
     .projects {
       padding: 100px 0;
       background: var(--dark-surface);
+    }
+    .filter-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
     }
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
       gap: 30px;
-      margin-top: 50px;
     }
     .project-card {
       background: var(--dark-card);
@@ -444,6 +470,9 @@
       transform: translateY(-10px);
       border-color: var(--primary-color);
       box-shadow: var(--border-glow);
+    }
+    .project-card.hidden {
+      display: none;
     }
     .project-image {
       height: 220px;
@@ -696,14 +725,12 @@
       font-weight: 600;
       font-size: 1rem;
     }
-    /* Individual social colors on hover */
     .social-item.linkedin:hover i { color: #0a66c2; }
     .social-item.telegram:hover i { color: #0088cc; }
     .social-item.tiktok:hover i { color: #ff0050; }
     .social-item.instagram:hover i { color: #e4405f; }
     .social-item.phone:hover i { color: #2ecc71; }
 
-    /* Contact Info Box */
     .contact-info-box {
       display: flex;
       justify-content: center;
@@ -863,6 +890,13 @@
         width: 100%;
         max-width: 250px;
       }
+      .filter-buttons {
+        gap: 10px;
+      }
+      .btn-filter {
+        padding: 6px 15px;
+        font-size: 0.8rem;
+      }
     }
     @media (max-width: 576px) {
       .container {
@@ -957,6 +991,7 @@
             <li>Construction Site Supervision</li>
             <li>Project Coordination</li>
             <li>Contract Documentation</li>
+            <li>Team Work</li>
           </ul>
         </div>
       </div>
@@ -971,10 +1006,19 @@
     </div>
   </section>
 
-  <!-- PROJECTS -->
+  <!-- PROJECTS with Filter -->
   <section id="projects" class="projects">
     <div class="container">
       <h2 class="section-title">Featured Projects</h2>
+      
+      <div class="filter-buttons">
+        <button class="btn-filter active" data-filter="all">All</button>
+        <button class="btn-filter" data-filter="foundation">Foundation Design</button>
+        <button class="btn-filter" data-filter="bridge">Bridge Design</button>
+        <button class="btn-filter" data-filter="industrial">Industrial Design</button>
+        <button class="btn-filter" data-filter="posttension">Post Tension</button>
+      </div>
+
       <div class="projects-grid" id="projectsGrid"></div>
     </div>
   </section>
@@ -987,7 +1031,7 @@
     </div>
   </section>
 
-  <!-- LANGUAGE ABILITIES (Short Version) -->
+  <!-- LANGUAGE ABILITIES -->
   <section id="languages" class="languages">
     <div class="container">
       <h2 class="section-title">🌍 Languages</h2>
@@ -1016,7 +1060,6 @@
     <div class="container">
       <h2 class="section-title">🔗 Connect With Me</h2>
       
-      <!-- Contact Info - Phone -->
       <div class="contact-info-box">
         <div class="contact-info-item">
           <i class="fas fa-phone"></i>
@@ -1028,7 +1071,6 @@
         </div>
       </div>
 
-      <!-- Social Media Icons -->
       <div class="social-wrapper">
         <a href="https://www.linkedin.com/in/tariku-t-07a67033b?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" class="social-item linkedin">
           <i class="fab fa-linkedin-in"></i>
@@ -1051,7 +1093,6 @@
         </a>
       </div>
 
-      <!-- Email Section -->
       <div class="social-email">
         <p>📧 Prefer email? Reach out directly:</p>
         <a href="mailto:constructiontech123@gmail.com">constructiontech123@gmail.com</a>
@@ -1122,46 +1163,44 @@
         { name: 'Microsoft Project', icon: 'fa-project-diagram', color: '#4a9eff' },
         { name: 'Excel Advanced', icon: 'fa-table', color: '#f0b34b' },
         { name: 'GIS', icon: 'fa-map', color: '#4a9eff' },
+        { name: 'Team Work', icon: 'fa-users', color: '#2ecc71' },
       ];
 
+      // Filterable Projects
       const projectsData = [
         {
-          title: 'Commercial Complex Construction',
-          description: 'Assisted in structural design and site supervision of a 12-story commercial building with parking facility during internship at Ovid Construction PLC.',
-          tags: ['Structural Design', 'Site Supervision', 'AutoCAD'],
-          image: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=600&h=400&fit=crop&crop=center',
+          title: 'Foundation Design',
+          description: 'Comprehensive foundation design for high-rise buildings including shallow and deep foundations, soil analysis, and load-bearing capacity calculations.',
+          tags: ['Foundation', 'Soil Analysis', 'Load Bearing'],
+          image: 'https://images.unsplash.com/photo-1574482620811-1aa16ffe61c4?w=600&h=400&fit=crop&crop=center',
+          category: 'foundation',
           liveLink: '#',
           codeLink: '#'
         },
         {
-          title: 'Residential Subdivision Development',
-          description: 'Participated in the development of 200+ residential units including road networks, drainage systems, and utility infrastructure.',
-          tags: ['Site Development', 'Infrastructure', 'Civil 3D'],
+          title: 'Bridge Design',
+          description: 'Structural design and analysis of reinforced concrete and steel bridges. Includes load distribution, seismic analysis, and aesthetic integration.',
+          tags: ['Bridge', 'Structural Analysis', 'Steel Design'],
+          image: 'https://images.unsplash.com/photo-1518186285582-2e7e4e5e2b6c?w=600&h=400&fit=crop&crop=center',
+          category: 'bridge',
+          liveLink: '#',
+          codeLink: '#'
+        },
+        {
+          title: 'Industrial Design',
+          description: 'Design of industrial structures including factories, warehouses, and heavy industrial facilities with focus on functionality and safety.',
+          tags: ['Industrial', 'Steel Structures', 'Safety'],
+          image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop&crop=center',
+          category: 'industrial',
+          liveLink: '#',
+          codeLink: '#'
+        },
+        {
+          title: 'Post Tension Construction',
+          description: 'Post-tensioning system design and construction supervision for large-span structures including parking garages, bridges, and high-rise buildings.',
+          tags: ['Post Tension', 'Prestressed', 'Construction'],
           image: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=600&h=400&fit=crop&crop=center',
-          liveLink: '#',
-          codeLink: '#'
-        },
-        {
-          title: 'Bridge Rehabilitation Project',
-          description: 'Academic project on structural assessment and rehabilitation of aging bridges using carbon fiber reinforcement techniques.',
-          tags: ['Bridge Engineering', 'Rehabilitation', 'STAAD Pro'],
-          image: 'bridge.jpg',
-          liveLink: '#',
-          codeLink: '#'
-        },
-        {
-          title: 'Highway Alignment Project',
-          description: 'Performed highway alignment and geometric design using AutoCAD Civil 3D for a 15km stretch of road.',
-          tags: ['Highway Design', 'Transportation', 'AutoCAD Civil 3D'],
-          image: 'https://images.unsplash.com/photo-1519501025264-65ba15a82390?w=600&h=400&fit=crop&crop=center',
-          liveLink: '#',
-          codeLink: '#'
-        },
-        {
-          title: 'Green Building Design',
-          description: 'Academic project focused on sustainable building design incorporating energy-efficient systems and locally sourced materials.',
-          tags: ['Sustainable Design', 'Green Building', 'Revit'],
-          image: 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?w=600&h=400&fit=crop&crop=center',
+          category: 'posttension',
           liveLink: '#',
           codeLink: '#'
         }
@@ -1192,25 +1231,57 @@
         skillsGrid.appendChild(div);
       });
 
-      // Render Projects
+      // Render Projects with Filter
       const projectsGrid = document.getElementById('projectsGrid');
-      projectsData.forEach(p => {
-        const card = document.createElement('div');
-        card.className = 'project-card';
-        card.innerHTML = `
-          <div class="project-image"><img src="${p.image}" alt="${p.title}" loading="lazy" onerror="this.src='https://placehold.co/600x400/1a1a2e/4a9eff?text=${encodeURIComponent(p.title)}'"></div>
-          <div class="project-content">
-            <h3>${p.title}</h3>
-            <p>${p.description}</p>
-            <div class="project-tags">${p.tags.map(t => `<span class="project-tag">${t}</span>`).join('')}</div>
-            <div class="project-links">
-              <a href="${p.liveLink}" target="_blank"><i class="fas fa-external-link-alt"></i> View Details</a>
-              <a href="${p.codeLink}" target="_blank"><i class="fas fa-file-pdf"></i> Project Report</a>
+      
+      function renderProjects(category = 'all') {
+        projectsGrid.innerHTML = '';
+        const filtered = category === 'all' ? projectsData : projectsData.filter(p => p.category === category);
+        
+        filtered.forEach(p => {
+          const card = document.createElement('div');
+          card.className = 'project-card';
+          card.dataset.category = p.category;
+          card.innerHTML = `
+            <div class="project-image"><img src="${p.image}" alt="${p.title}" loading="lazy" onerror="this.src='https://placehold.co/600x400/1a1a2e/4a9eff?text=${encodeURIComponent(p.title)}'"></div>
+            <div class="project-content">
+              <h3>${p.title}</h3>
+              <p>${p.description}</p>
+              <div class="project-tags">${p.tags.map(t => `<span class="project-tag">${t}</span>`).join('')}</div>
+              <div class="project-links">
+                <a href="${p.liveLink}" target="_blank"><i class="fas fa-external-link-alt"></i> View Details</a>
+                <a href="${p.codeLink}" target="_blank"><i class="fas fa-file-pdf"></i> Project Report</a>
+              </div>
             </div>
-          </div>
-        `;
-        projectsGrid.appendChild(card);
+          `;
+          projectsGrid.appendChild(card);
+        });
+        
+        // Add animation to new cards
+        const cards = projectsGrid.querySelectorAll('.project-card');
+        cards.forEach((el, i) => {
+          el.style.opacity = '0';
+          el.style.transform = 'translateY(30px)';
+          setTimeout(() => {
+            el.style.opacity = '1';
+            el.style.transform = 'translateY(0)';
+          }, 100 * i);
+        });
+      }
+
+      // Filter buttons
+      const filterButtons = document.querySelectorAll('.btn-filter');
+      filterButtons.forEach(btn => {
+        btn.addEventListener('click', function() {
+          filterButtons.forEach(b => b.classList.remove('active'));
+          this.classList.add('active');
+          const category = this.dataset.filter;
+          renderProjects(category);
+        });
       });
+
+      // Initial render
+      renderProjects('all');
 
       // Render Experience
       const timeline = document.getElementById('timelineContainer');
@@ -1266,4 +1337,4 @@
     });
   </script>
 </body>
-  </html>
+</html>
