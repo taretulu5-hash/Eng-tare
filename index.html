@@ -616,125 +616,117 @@
       color: #fff;
     }
 
-    /* ----- LANGUAGE ABILITIES SECTION ----- */
+    /* ----- LANGUAGE ABILITIES (Short Version) ----- */
     .languages {
       padding: 100px 0;
       background: linear-gradient(180deg, var(--dark-surface) 0%, var(--dark-color) 100%);
     }
-    .languages-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
+    .lang-wrapper {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
       margin-top: 50px;
     }
-    .language-card {
+    .lang-item {
       background: var(--dark-card);
-      padding: 40px 30px;
-      border-radius: 15px;
+      padding: 25px 35px;
+      border-radius: 12px;
       text-align: center;
+      min-width: 180px;
       border: 1px solid rgba(74, 158, 255, 0.08);
       transition: var(--transition);
-      position: relative;
-      overflow: hidden;
     }
-    .language-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 4px;
-      background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-      transform: scaleX(0);
-      transition: var(--transition);
-    }
-    .language-card:hover::before {
-      transform: scaleX(1);
-    }
-    .language-card:hover {
-      transform: translateY(-8px);
+    .lang-item:hover {
+      transform: translateY(-5px);
       border-color: var(--primary-color);
       box-shadow: var(--border-glow);
     }
-    .language-card .lang-icon {
-      font-size: 3.5rem;
-      margin-bottom: 15px;
+    .lang-item .flag {
+      font-size: 2.5rem;
       display: block;
-    }
-    .language-card .lang-flag {
-      font-size: 3rem;
-      margin-bottom: 15px;
-      display: block;
-    }
-    .language-card h3 {
-      color: var(--white);
-      font-size: 1.6rem;
       margin-bottom: 8px;
-      font-weight: 700;
     }
-    .language-card .lang-native {
+    .lang-item h4 {
+      color: var(--white);
+      font-size: 1.2rem;
+    }
+    .lang-item .level {
       color: var(--secondary-color);
-      font-size: 0.9rem;
-      font-weight: 600;
-      margin-bottom: 10px;
-      letter-spacing: 1px;
-    }
-    .language-card .lang-level {
-      display: inline-block;
-      padding: 5px 20px;
-      border-radius: 20px;
       font-size: 0.85rem;
       font-weight: 600;
-      background: linear-gradient(135deg, var(--primary-color), #2d7dd2);
-      color: var(--white);
-      margin-bottom: 12px;
-    }
-    .language-card .lang-desc {
-      color: var(--text-light);
-      font-size: 0.95rem;
-      line-height: 1.7;
-    }
-    .language-card .lang-skills {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      margin-top: 15px;
-      flex-wrap: wrap;
-    }
-    .language-card .lang-skills span {
-      background: var(--dark-color);
-      padding: 4px 14px;
-      border-radius: 15px;
-      font-size: 0.8rem;
-      color: var(--text-light);
-      border: 1px solid rgba(74, 158, 255, 0.1);
     }
 
-    /* Email CTA Section */
-    .email-cta {
+    /* ----- SOCIAL MEDIA SECTION ----- */
+    .social-section {
+      padding: 80px 0;
+      background: var(--dark-color);
+    }
+    .social-wrapper {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      flex-wrap: wrap;
+      margin-top: 40px;
+    }
+    .social-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--dark-card);
+      padding: 15px 30px;
+      border-radius: 50px;
+      border: 1px solid rgba(74, 158, 255, 0.08);
+      transition: var(--transition);
+      color: var(--text-color);
+    }
+    .social-item:hover {
+      transform: translateY(-5px);
+      border-color: var(--primary-color);
+      box-shadow: var(--border-glow);
+    }
+    .social-item i {
+      font-size: 1.6rem;
+      width: 35px;
+      text-align: center;
+    }
+    .social-item .social-name {
+      font-weight: 600;
+      font-size: 1rem;
+    }
+    .social-item .social-handle {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+    /* Individual social colors on hover */
+    .social-item.linkedin:hover i { color: #0a66c2; }
+    .social-item.telegram:hover i { color: #0088cc; }
+    .social-item.tiktok:hover i { color: #ff0050; }
+    .social-item.github:hover i { color: #f0f0f0; }
+    .social-item.twitter:hover i { color: #1da1f2; }
+    .social-item.instagram:hover i { color: #e4405f; }
+    .social-item.youtube:hover i { color: #ff0000; }
+
+    .social-email {
       text-align: center;
       margin-top: 50px;
-      padding: 40px;
+      padding: 30px;
       background: var(--dark-card);
-      border-radius: 15px;
+      border-radius: 12px;
       border: 1px solid rgba(74, 158, 255, 0.08);
     }
-    .email-cta h3 {
-      color: var(--white);
-      font-size: 1.8rem;
-      margin-bottom: 15px;
-    }
-    .email-cta p {
+    .social-email p {
       color: var(--text-light);
       font-size: 1.1rem;
-      margin-bottom: 25px;
+      margin-bottom: 15px;
     }
-    .email-cta .btn-email {
-      padding: 15px 45px;
-      font-size: 1.1rem;
+    .social-email a {
+      color: var(--primary-color);
+      font-size: 1.2rem;
+      font-weight: 600;
     }
-    .email-cta .btn-email i {
-      margin-right: 10px;
+    .social-email a:hover {
+      color: var(--secondary-color);
     }
 
     /* ----- FOOTER ----- */
@@ -782,8 +774,12 @@
       .timeline-dot {
         left: 20px;
       }
-      .languages-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      .lang-wrapper {
+        gap: 20px;
+      }
+      .lang-item {
+        min-width: 140px;
+        padding: 20px 25px;
       }
     }
     @media (max-width: 768px) {
@@ -825,14 +821,13 @@
       .projects-grid {
         grid-template-columns: 1fr;
       }
-      .languages-grid {
-        grid-template-columns: 1fr;
+      .social-wrapper {
+        gap: 15px;
       }
-      .email-cta {
-        padding: 25px;
-      }
-      .email-cta h3 {
-        font-size: 1.4rem;
+      .social-item {
+        padding: 12px 20px;
+        width: 100%;
+        justify-content: center;
       }
     }
     @media (max-width: 576px) {
@@ -841,6 +836,14 @@
       }
       .skills-grid {
         grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      }
+      .lang-wrapper {
+        flex-direction: column;
+        align-items: center;
+      }
+      .lang-item {
+        width: 100%;
+        max-width: 250px;
       }
     }
   </style>
@@ -858,6 +861,7 @@
           <li><a href="#projects">Projects</a></li>
           <li><a href="#experience">Experience</a></li>
           <li><a href="#languages">Languages</a></li>
+          <li><a href="#social">Social</a></li>
         </ul>
         <button class="nav-toggle" aria-label="Toggle navigation">
           <i class="fas fa-bars"></i>
@@ -875,7 +879,7 @@
         <div class="hero-buttons">
           <a href="#projects" class="btn btn-primary">View My Projects</a>
           <a href="#experience" class="btn btn-success"><i class="fas fa-certificate"></i> View Certificate</a>
-          <a href="#languages" class="btn btn-contact">My Languages</a>
+          <a href="#social" class="btn btn-contact">Connect With Me</a>
         </div>
       </div>
       <div class="hero-image">
@@ -943,65 +947,76 @@
     </div>
   </section>
 
-  <!-- LANGUAGE ABILITIES SECTION -->
+  <!-- LANGUAGE ABILITIES (Short Version) -->
   <section id="languages" class="languages">
     <div class="container">
-      <h2 class="section-title">🌍 Language Abilities</h2>
-      
-      <div class="languages-grid">
-        <!-- English -->
-        <div class="language-card">
-          <span class="lang-flag">🇬🇧</span>
-          <h3>English</h3>
-          <div class="lang-native">Native / Fluent</div>
-          <span class="lang-level">⭐ Fluent</span>
-          <p class="lang-desc">Professional working proficiency. Able to communicate effectively in academic, technical, and professional settings.</p>
-          <div class="lang-skills">
-            <span>📝 Writing</span>
-            <span>🗣️ Speaking</span>
-            <span>📖 Reading</span>
-            <span>👂 Listening</span>
-          </div>
+      <h2 class="section-title">🌍 Languages</h2>
+      <div class="lang-wrapper">
+        <div class="lang-item">
+          <span class="flag">🇬🇧</span>
+          <h4>English</h4>
+          <span class="level">⭐ Fluent</span>
         </div>
-
-        <!-- Afan Oromo -->
-        <div class="language-card">
-          <span class="lang-flag">🇪🇹</span>
-          <h3>Afaan Oromoo</h3>
-          <div class="lang-native">Native Language</div>
-          <span class="lang-level">⭐ Native</span>
-          <p class="lang-desc">Mother tongue. Fluent in speaking, reading, and writing. Used for daily communication and community engagement.</p>
-          <div class="lang-skills">
-            <span>📝 Writing</span>
-            <span>🗣️ Speaking</span>
-            <span>📖 Reading</span>
-            <span>👂 Listening</span>
-          </div>
+        <div class="lang-item">
+          <span class="flag">🇪🇹</span>
+          <h4>Afaan Oromoo</h4>
+          <span class="level">⭐ Native</span>
         </div>
-
-        <!-- Amharic -->
-        <div class="language-card">
-          <span class="lang-flag">🇪🇹</span>
-          <h3>አማርኛ (Amharic)</h3>
-          <div class="lang-native">Fluent / Advanced</div>
-          <span class="lang-level">⭐ Advanced</span>
-          <p class="lang-desc">Fluent in speaking and writing. Used for professional communication, official documents, and daily interactions in Ethiopia.</p>
-          <div class="lang-skills">
-            <span>📝 Writing</span>
-            <span>🗣️ Speaking</span>
-            <span>📖 Reading</span>
-            <span>👂 Listening</span>
-          </div>
+        <div class="lang-item">
+          <span class="flag">🇪🇹</span>
+          <h4>አማርኛ</h4>
+          <span class="level">⭐ Advanced</span>
         </div>
       </div>
+    </div>
+  </section>
 
-      <!-- Email CTA -->
-      <div class="email-cta">
-        <h3>📧 Let's Work Together</h3>
-        <p>Feel free to reach out to me directly via email for collaborations, projects, or any inquiries.</p>
-        <a href="mailto:constructiontech123@gmail.com" class="btn btn-email">
-          <i class="fas fa-envelope"></i> constructiontech123@gmail.com
+  <!-- SOCIAL MEDIA SECTION -->
+  <section id="social" class="social-section">
+    <div class="container">
+      <h2 class="section-title">🔗 Connect With Me</h2>
+      
+      <div class="social-wrapper">
+        <a href="https://www.linkedin.com/in/tariku-t-07a67033b?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" class="social-item linkedin">
+          <i class="fab fa-linkedin-in"></i>
+          <span class="social-name">LinkedIn</span>
+          <span class="social-handle">@tariku-t</span>
         </a>
+        
+        <a href="https://t.me/engnr_tech" target="_blank" class="social-item telegram">
+          <i class="fab fa-telegram-plane"></i>
+          <span class="social-name">Telegram</span>
+          <span class="social-handle">@engnr_tech</span>
+        </a>
+        
+        <a href="https://tiktok.com/@tare_t0" target="_blank" class="social-item tiktok">
+          <i class="fab fa-tiktok"></i>
+          <span class="social-name">TikTok</span>
+          <span class="social-handle">@tare_t0</span>
+        </a>
+        
+        <a href="https://github.com" target="_blank" class="social-item github">
+          <i class="fab fa-github"></i>
+          <span class="social-name">GitHub</span>
+          <span class="social-handle">@tariku</span>
+        </a>
+        
+        <a href="https://twitter.com" target="_blank" class="social-item twitter">
+          <i class="fab fa-twitter"></i>
+          <span class="social-name">Twitter</span>
+          <span class="social-handle">@tariku</span>
+        </a>
+        
+        <a href="https://instagram.com" target="_blank" class="social-item instagram">
+          <i class="fab fa-instagram"></i>
+          <span class="social-name">Instagram</span>
+          <span class="social-handle">@tariku</span>
+        </a>
+      </div>
+
+      <div class="social-email">
+        <p>📧 Prefer email? Reach out directly:</p>
+        <a href="mailto:constructiontech123@gmail.com">constructiontech123@gmail.com</a>
       </div>
     </div>
   </section>
@@ -1191,7 +1206,7 @@
       });
 
       // Scroll animation
-      const animElements = document.querySelectorAll('.skill-item, .project-card, .timeline-item, .language-card');
+      const animElements = document.querySelectorAll('.skill-item, .project-card, .timeline-item, .lang-item, .social-item');
       animElements.forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px)';
@@ -1213,4 +1228,4 @@
     });
   </script>
 </body>
-        </html>
+                </html>
