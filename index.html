@@ -16,8 +16,9 @@
       --dark-card: #1a1a2e;
       --dark-surface: #16213e;
       --light-color: #1e1e2f;
-      --text-color: #e0e0e0;
-      --text-light: #a0a0b8;
+      --text-color: #e8e8e8;
+      --text-light: #c0c0d0;
+      --text-muted: #8888aa;
       --white: #ffffff;
       --box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
       --transition: all 0.3s ease;
@@ -36,7 +37,7 @@
 
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      line-height: 1.6;
+      line-height: 1.8;
       color: var(--text-color);
       background-color: var(--dark-color);
       overflow-x: hidden;
@@ -256,11 +257,12 @@
       font-weight: 400;
     }
     .hero p {
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       margin-bottom: 30px;
       max-width: 600px;
-      color: var(--text-light);
-      line-height: 1.8;
+      color: #d0d0e0;
+      line-height: 1.9;
+      font-weight: 400;
     }
     .hero-buttons {
       display: flex;
@@ -304,11 +306,12 @@
     .about-text p {
       margin-bottom: 20px;
       font-size: 1.1rem;
-      color: var(--text-light);
-      line-height: 1.8;
+      color: #d0d0e0;
+      line-height: 1.9;
     }
     .about-text p strong {
       color: var(--white);
+      font-weight: 700;
     }
     .about-links {
       display: flex;
@@ -357,7 +360,8 @@
       margin-bottom: 12px;
       position: relative;
       padding-left: 25px;
-      color: var(--text-light);
+      color: #d0d0e0;
+      font-size: 1.05rem;
     }
     .about-skills ul li::before {
       content: '▹';
@@ -450,8 +454,9 @@
     }
     .project-content p {
       margin-bottom: 15px;
-      color: var(--text-light);
-      line-height: 1.6;
+      color: #c0c0d0;
+      line-height: 1.8;
+      font-size: 1rem;
     }
     .project-tags {
       display: flex;
@@ -550,6 +555,7 @@
       margin-bottom: 10px;
       color: var(--primary-color);
       font-weight: 600;
+      font-size: 1.05rem;
     }
     .timeline-title {
       font-size: 1.5rem;
@@ -559,7 +565,12 @@
     .timeline-company {
       font-size: 1.1rem;
       margin-bottom: 15px;
-      color: var(--text-light);
+      color: #b0b0c8;
+    }
+    .timeline-content p {
+      color: #c0c0d0;
+      line-height: 1.8;
+      font-size: 1rem;
     }
     .cert-badge {
       display: inline-block;
@@ -620,7 +631,7 @@
     }
     .form-group input::placeholder,
     .form-group textarea::placeholder {
-      color: var(--text-light);
+      color: var(--text-muted);
     }
     .form-group input:focus,
     .form-group textarea:focus {
@@ -650,7 +661,8 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      color: var(--text-light);
+      color: #c0c0d0;
+      font-size: 1.05rem;
     }
     .contact-info ul li i {
       width: 35px;
@@ -693,12 +705,13 @@
     .footer {
       padding: 30px 0;
       background: var(--dark-color);
-      color: var(--text-light);
+      color: var(--text-muted);
       text-align: center;
       border-top: 1px solid rgba(74, 158, 255, 0.08);
     }
     .footer p {
       margin-bottom: 10px;
+      color: #8888aa;
     }
     .footer-links {
       display: flex;
@@ -706,7 +719,7 @@
       gap: 20px;
     }
     .footer-links a {
-      color: var(--text-light);
+      color: var(--text-muted);
     }
     .footer-links a:hover {
       color: var(--primary-color);
@@ -1133,4 +1146,4 @@
     });
   </script>
 </body>
-              </html>
+  </html>
