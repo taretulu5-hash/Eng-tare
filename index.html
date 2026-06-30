@@ -679,6 +679,8 @@
       border: 1px solid rgba(74, 158, 255, 0.08);
       transition: var(--transition);
       color: var(--text-color);
+      min-width: 180px;
+      justify-content: center;
     }
     .social-item:hover {
       transform: translateY(-5px);
@@ -694,22 +696,49 @@
       font-weight: 600;
       font-size: 1rem;
     }
-    .social-item .social-handle {
-      color: var(--text-muted);
-      font-size: 0.85rem;
-    }
     /* Individual social colors on hover */
     .social-item.linkedin:hover i { color: #0a66c2; }
     .social-item.telegram:hover i { color: #0088cc; }
     .social-item.tiktok:hover i { color: #ff0050; }
-    .social-item.github:hover i { color: #f0f0f0; }
-    .social-item.twitter:hover i { color: #1da1f2; }
     .social-item.instagram:hover i { color: #e4405f; }
-    .social-item.youtube:hover i { color: #ff0000; }
+    .social-item.phone:hover i { color: #2ecc71; }
+
+    /* Contact Info Box */
+    .contact-info-box {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin-top: 40px;
+      padding: 30px;
+      background: var(--dark-card);
+      border-radius: 15px;
+      border: 1px solid rgba(74, 158, 255, 0.08);
+    }
+    .contact-info-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--text-light);
+      font-size: 1.05rem;
+    }
+    .contact-info-item i {
+      font-size: 1.3rem;
+      color: var(--primary-color);
+      width: 30px;
+      text-align: center;
+    }
+    .contact-info-item a {
+      color: var(--text-light);
+      transition: var(--transition);
+    }
+    .contact-info-item a:hover {
+      color: var(--primary-color);
+    }
 
     .social-email {
       text-align: center;
-      margin-top: 50px;
+      margin-top: 40px;
       padding: 30px;
       background: var(--dark-card);
       border-radius: 12px;
@@ -781,6 +810,11 @@
         min-width: 140px;
         padding: 20px 25px;
       }
+      .contact-info-box {
+        gap: 20px;
+        flex-direction: column;
+        align-items: center;
+      }
     }
     @media (max-width: 768px) {
       .nav-list {
@@ -827,7 +861,7 @@
       .social-item {
         padding: 12px 20px;
         width: 100%;
-        justify-content: center;
+        max-width: 250px;
       }
     }
     @media (max-width: 576px) {
@@ -844,6 +878,12 @@
       .lang-item {
         width: 100%;
         max-width: 250px;
+      }
+      .contact-info-box {
+        padding: 20px;
+      }
+      .contact-info-item {
+        font-size: 0.95rem;
       }
     }
   </style>
@@ -976,44 +1016,42 @@
     <div class="container">
       <h2 class="section-title">🔗 Connect With Me</h2>
       
+      <!-- Contact Info - Phone -->
+      <div class="contact-info-box">
+        <div class="contact-info-item">
+          <i class="fas fa-phone"></i>
+          <span>+251 902 607 794</span>
+        </div>
+        <div class="contact-info-item">
+          <i class="fas fa-envelope"></i>
+          <a href="mailto:constructiontech123@gmail.com">constructiontech123@gmail.com</a>
+        </div>
+      </div>
+
+      <!-- Social Media Icons -->
       <div class="social-wrapper">
         <a href="https://www.linkedin.com/in/tariku-t-07a67033b?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" class="social-item linkedin">
           <i class="fab fa-linkedin-in"></i>
           <span class="social-name">LinkedIn</span>
-          <span class="social-handle">@tariku-t</span>
         </a>
         
         <a href="https://t.me/engnr_tech" target="_blank" class="social-item telegram">
           <i class="fab fa-telegram-plane"></i>
           <span class="social-name">Telegram</span>
-          <span class="social-handle">@engnr_tech</span>
         </a>
         
         <a href="https://tiktok.com/@tare_t0" target="_blank" class="social-item tiktok">
           <i class="fab fa-tiktok"></i>
           <span class="social-name">TikTok</span>
-          <span class="social-handle">@tare_t0</span>
         </a>
         
-        <a href="https://github.com" target="_blank" class="social-item github">
-          <i class="fab fa-github"></i>
-          <span class="social-name">GitHub</span>
-          <span class="social-handle">@tariku</span>
-        </a>
-        
-        <a href="https://twitter.com" target="_blank" class="social-item twitter">
-          <i class="fab fa-twitter"></i>
-          <span class="social-name">Twitter</span>
-          <span class="social-handle">@tariku</span>
-        </a>
-        
-        <a href="https://instagram.com" target="_blank" class="social-item instagram">
+        <a href="https://www.instagram.com/engineertare?igsh=MXVnbWg0a3NqbTg4aw==" target="_blank" class="social-item instagram">
           <i class="fab fa-instagram"></i>
           <span class="social-name">Instagram</span>
-          <span class="social-handle">@tariku</span>
         </a>
       </div>
 
+      <!-- Email Section -->
       <div class="social-email">
         <p>📧 Prefer email? Reach out directly:</p>
         <a href="mailto:constructiontech123@gmail.com">constructiontech123@gmail.com</a>
@@ -1206,7 +1244,7 @@
       });
 
       // Scroll animation
-      const animElements = document.querySelectorAll('.skill-item, .project-card, .timeline-item, .lang-item, .social-item');
+      const animElements = document.querySelectorAll('.skill-item, .project-card, .timeline-item, .lang-item, .social-item, .contact-info-item');
       animElements.forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px)';
@@ -1228,4 +1266,4 @@
     });
   </script>
 </body>
-                </html>
+  </html>
