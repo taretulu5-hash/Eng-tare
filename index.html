@@ -241,12 +241,15 @@
       cursor: pointer;
     }
 
-    /* ----- HERO ----- */
+    /* ----- HERO - Bigger Photo, No Paragraph ----- */
     .hero {
-      padding: 160px 0 100px;
+      padding: 140px 0 80px;
       background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #0d1b2a 100%);
       position: relative;
       overflow: hidden;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
     }
     .hero::before {
       content: '';
@@ -268,14 +271,18 @@
       background: radial-gradient(circle, rgba(240, 179, 75, 0.05) 0%, transparent 70%);
       border-radius: 50%;
     }
-    .hero-content {
-      flex: 1;
+    .hero .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       position: relative;
       z-index: 1;
+      text-align: center;
     }
     .hero h1 {
-      font-size: 3.8rem;
-      margin-bottom: 15px;
+      font-size: 3.5rem;
+      margin-bottom: 10px;
       color: var(--white);
       font-weight: 700;
     }
@@ -285,47 +292,35 @@
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
-    .hero h2 {
-      font-size: 2rem;
-      margin-bottom: 20px;
-      color: var(--text-light);
-      font-weight: 400;
+    .hero-image {
+      text-align: center;
+      margin-bottom: 25px;
     }
-    .hero p {
-      font-size: 1.15rem;
-      margin-bottom: 30px;
-      max-width: 600px;
-      color: #d0d0e0;
-      line-height: 1.9;
-      font-weight: 400;
+    .hero-image img {
+      max-width: 500px;
+      width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 0 50px rgba(74, 158, 255, 0.25), 0 30px 80px rgba(0, 0, 0, 0.6);
+      object-fit: cover;
+      aspect-ratio: 1/1;
+      background: var(--dark-card);
+      border: 3px solid rgba(74, 158, 255, 0.2);
+      transition: var(--transition);
+    }
+    .hero-image img:hover {
+      border-color: var(--primary-color);
+      box-shadow: 0 0 70px rgba(74, 158, 255, 0.35), 0 30px 80px rgba(0, 0, 0, 0.6);
+      transform: scale(1.02);
     }
     .hero-buttons {
       display: flex;
       gap: 20px;
       flex-wrap: wrap;
-    }
-    .hero-image {
-      flex: 1;
-      text-align: center;
-      position: relative;
-      z-index: 1;
-    }
-    .hero-image img {
-      max-width: 380px;
-      width: 100%;
-      border-radius: 20px;
-      box-shadow: 0 0 40px rgba(74, 158, 255, 0.2), 0 20px 60px rgba(0, 0, 0, 0.5);
-      object-fit: cover;
-      aspect-ratio: 1/1;
-      background: var(--dark-card);
-      border: 2px solid rgba(74, 158, 255, 0.2);
-    }
-    .hero-image img:hover {
-      border-color: var(--primary-color);
-      box-shadow: 0 0 60px rgba(74, 158, 255, 0.3);
+      justify-content: center;
+      margin-top: 10px;
     }
 
-    /* ----- ABOUT ----- */
+    /* ----- ABOUT - Short Education & Internship ----- */
     .about {
       padding: 100px 0;
       background: linear-gradient(180deg, var(--dark-color) 0%, var(--dark-surface) 100%);
@@ -333,20 +328,48 @@
     .about-content {
       display: flex;
       gap: 50px;
-      align-items: center;
+      align-items: flex-start;
     }
     .about-text {
       flex: 2;
     }
-    .about-text p {
-      margin-bottom: 20px;
-      font-size: 1.1rem;
-      color: #d0d0e0;
-      line-height: 1.9;
-    }
-    .about-text p strong {
+    .about-text h3 {
       color: var(--white);
-      font-weight: 700;
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      margin-top: 25px;
+    }
+    .about-text h3:first-of-type {
+      margin-top: 0;
+    }
+    .about-text h3 i {
+      color: var(--primary-color);
+      margin-right: 10px;
+    }
+    .about-text .edu-item,
+    .about-text .exp-item {
+      background: var(--dark-card);
+      padding: 15px 20px;
+      border-radius: 10px;
+      margin-bottom: 12px;
+      border-left: 3px solid var(--primary-color);
+    }
+    .about-text .edu-item strong,
+    .about-text .exp-item strong {
+      color: var(--white);
+      display: block;
+      font-size: 1.1rem;
+    }
+    .about-text .edu-item span,
+    .about-text .exp-item span {
+      color: var(--text-light);
+      font-size: 0.95rem;
+    }
+    .about-text .edu-item .date,
+    .about-text .exp-item .date {
+      color: var(--secondary-color);
+      font-size: 0.85rem;
+      font-weight: 600;
     }
     .about-links {
       display: flex;
@@ -645,7 +668,7 @@
       color: #fff;
     }
 
-    /* ----- LANGUAGE ABILITIES (Short Version) ----- */
+    /* ----- LANGUAGE ABILITIES ----- */
     .languages {
       padding: 100px 0;
       background: linear-gradient(180deg, var(--dark-surface) 0%, var(--dark-color) 100%);
@@ -811,12 +834,8 @@
 
     /* ----- RESPONSIVE ----- */
     @media (max-width: 992px) {
-      .hero-content,
       .about-content {
         flex-direction: column;
-      }
-      .hero-image {
-        margin-top: 50px;
       }
       .timeline::before {
         left: 30px;
@@ -841,6 +860,12 @@
         gap: 20px;
         flex-direction: column;
         align-items: center;
+      }
+      .hero-image img {
+        max-width: 400px;
+      }
+      .hero h1 {
+        font-size: 2.8rem;
       }
     }
     @media (max-width: 768px) {
@@ -867,14 +892,15 @@
         display: block;
       }
       .hero h1 {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
       }
-      .hero h2 {
-        font-size: 1.5rem;
+      .hero-image img {
+        max-width: 320px;
       }
       .hero-buttons {
         flex-direction: column;
         gap: 15px;
+        align-items: center;
       }
       .section-title {
         font-size: 2rem;
@@ -919,6 +945,12 @@
       .contact-info-item {
         font-size: 0.95rem;
       }
+      .hero-image img {
+        max-width: 280px;
+      }
+      .hero h1 {
+        font-size: 1.8rem;
+      }
     }
   </style>
 </head>
@@ -944,32 +976,41 @@
     </div>
   </header>
 
-  <!-- HERO -->
+  <!-- HERO - Bigger Photo, No Paragraph -->
   <section id="home" class="hero">
-    <div class="container" style="display: flex; flex-wrap: wrap; align-items: center;">
-      <div class="hero-content">
-        <h1>Welcome, I'm <span>Eng Tariku Tulu</span></h1>
-        <p>I'm Civil Engineering Student at Jimma University with hands-on internship experience at Ovid Construction PLC. Dedicated to structural design, construction supervision, and sustainable infrastructure.</p>
-        <div class="hero-buttons">
-          <a href="#projects" class="btn btn-primary">View My Projects</a>
-          <a href="#experience" class="btn btn-success"><i class="fas fa-certificate"></i> View Certificate</a>
-          <a href="#social" class="btn btn-contact">Connect With Me</a>
-        </div>
-      </div>
+    <div class="container">
       <div class="hero-image">
         <img src="1773502475241.png" alt="Tariku Tulu - Civil Engineer" id="profilePhoto" />
+      </div>
+      <h1>Welcome, I'm <span>Eng Tariku Tulu</span></h1>
+      <div class="hero-buttons">
+        <a href="#projects" class="btn btn-primary">View My Projects</a>
+        <a href="#experience" class="btn btn-success"><i class="fas fa-certificate"></i> View Certificate</a>
+        <a href="#social" class="btn btn-contact">Connect With Me</a>
       </div>
     </div>
   </section>
 
-  <!-- ABOUT -->
+  <!-- ABOUT - Short Education & Internship -->
   <section id="about" class="about">
     <div class="container">
       <h2 class="section-title">About Me</h2>
       <div class="about-content">
         <div class="about-text">
-          <p>I am a dedicated Civil Engineering student at <strong>Jimma University</strong>, graduating in <strong>2027</strong>. My passion lies in structural design, construction supervision, and creating sustainable infrastructure that serves communities effectively.</p>
-          <p>I have completed an internship at <strong>Ovid Construction PLC</strong> from March to June 2026, where I gained hands-on experience in construction site supervision, quantity surveying, quality control, and project coordination.</p>
+          <h3><i class="fas fa-graduation-cap"></i> Education</h3>
+          <div class="edu-item">
+            <strong>BSc in Civil Engineering</strong>
+            <span>Jimma University</span>
+            <div class="date">2023 - 2027 (Expected)</div>
+          </div>
+
+          <h3><i class="fas fa-briefcase"></i> Internship Experience</h3>
+          <div class="exp-item">
+            <strong>Intern Civil Engineer</strong>
+            <span>Ovid Construction PLC</span>
+            <div class="date">March 2026 - June 2026</div>
+          </div>
+
           <div class="about-links">
             <a href="#" class="btn btn-primary">Download Resume</a>
             <a href="My internship certificate.pdf" download class="btn btn-success"><i class="fas fa-file-pdf"></i> Download Certificate</a>
@@ -981,9 +1022,11 @@
           </div>
         </div>
         <div class="about-skills">
-          <h3>My Skills</h3>
+          <h3>My overall skills</h3>
           <ul>
             <li>Structural Analysis & Design</li>
+            <li>STAAD Pro & ETABS</li>
+            <li>AutoCAD & Revit</li>
             <li>Quantity Surveying</li>
             <li>Quality Control & Assurance</li>
             <li>Construction Site Supervision</li>
@@ -999,7 +1042,7 @@
   <!-- SKILLS -->
   <section id="skills" class="skills">
     <div class="container">
-      <h2 class="section-title">My Software Skills</h2>
+      <h2 class="section-title">Technical Skills & Software</h2>
       <div class="skills-grid" id="skillsGrid"></div>
     </div>
   </section>
@@ -1164,12 +1207,12 @@
         { name: 'Primavera P6', icon: 'fa-tasks', color: '#f0b34b' },
         { name: 'Microsoft Project', icon: 'fa-project-diagram', color: '#4a9eff' },
         { name: 'Excel Advanced', icon: 'fa-table', color: '#f0b34b' },
-        { name: 'GIS', icon: 'fa-map', color: '#4a9eff' }
+        { name: 'GIS', icon: 'fa-map', color: '#4a9eff' },
+        { name: 'Team Work', icon: 'fa-users', color: '#2ecc71' },
       ];
 
-      // ALL Projects Combined (Previous + New) with Pinterest-style images
+      // ALL Projects Combined (Previous + New)
       const projectsData = [
-        // Previous Projects
         {
           title: 'Commercial Complex Construction',
           description: 'Assisted in structural design and site supervision of a 12-story commercial building with parking facility during internship at Ovid Construction PLC.',
@@ -1215,7 +1258,6 @@
           liveLink: '#',
           codeLink: '#'
         },
-        // New Projects
         {
           title: 'Foundation Design',
           description: 'Comprehensive foundation design for high-rise buildings including shallow and deep foundations, soil analysis, and load-bearing capacity calculations.',
@@ -1365,7 +1407,7 @@
       });
 
       // Scroll animation
-      const animElements = document.querySelectorAll('.skill-item, .project-card, .timeline-item, .lang-item, .social-item, .contact-info-item');
+      const animElements = document.querySelectorAll('.skill-item, .project-card, .timeline-item, .lang-item, .social-item, .contact-info-item, .edu-item, .exp-item');
       animElements.forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px)';
