@@ -151,6 +151,24 @@
       color: var(--white);
       border-color: var(--primary-color);
     }
+    .btn-load-more {
+      background: var(--dark-card);
+      color: var(--text-light);
+      padding: 12px 35px;
+      border-radius: 30px;
+      border: 1px solid rgba(74, 158, 255, 0.2);
+      cursor: pointer;
+      transition: var(--transition);
+      font-size: 1rem;
+      font-weight: 600;
+      margin-top: 30px;
+    }
+    .btn-load-more:hover {
+      border-color: var(--primary-color);
+      color: var(--white);
+      transform: translateY(-3px);
+      box-shadow: var(--border-glow);
+    }
 
     .section-title {
       font-size: 2.8rem;
@@ -288,6 +306,23 @@
       flex-wrap: wrap;
       justify-content: center;
       margin-top: 30px;
+    }
+    /* Corner button on home section */
+    .hero-corner-btn {
+      position: absolute;
+      bottom: 30px;
+      right: 30px;
+      z-index: 3;
+    }
+    @media (max-width: 768px) {
+      .hero-corner-btn {
+        bottom: 15px;
+        right: 15px;
+      }
+      .hero-corner-btn .btn {
+        padding: 10px 18px;
+        font-size: 0.85rem;
+      }
     }
 
     /* ----- ABOUT - Short Education & Internship ----- */
@@ -439,12 +474,49 @@
       padding: 100px 0;
       background: var(--dark-surface);
     }
+    .filter-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+    .search-bar {
+      display: flex;
+      align-items: center;
+      background: var(--dark-card);
+      border-radius: 30px;
+      padding: 5px 20px;
+      border: 1px solid rgba(74, 158, 255, 0.15);
+      transition: var(--transition);
+      width: 100%;
+      max-width: 450px;
+    }
+    .search-bar:focus-within {
+      border-color: var(--primary-color);
+      box-shadow: var(--border-glow);
+    }
+    .search-bar input {
+      background: transparent;
+      border: none;
+      outline: none;
+      color: var(--text-color);
+      padding: 12px 10px;
+      width: 100%;
+      font-size: 1rem;
+    }
+    .search-bar input::placeholder {
+      color: var(--text-muted);
+    }
+    .search-bar i {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+    }
     .filter-buttons {
       display: flex;
       justify-content: center;
       gap: 15px;
       flex-wrap: wrap;
-      margin-bottom: 40px;
     }
     .projects-grid {
       display: grid;
@@ -529,6 +601,11 @@
     }
     .project-links a:hover i {
       transform: translateX(3px);
+    }
+    .load-more-wrapper {
+      display: flex;
+      justify-content: center;
+      margin-top: 40px;
     }
 
     /* ----- EXPERIENCE ----- */
@@ -881,6 +958,9 @@
         padding: 6px 15px;
         font-size: 0.8rem;
       }
+      .search-bar {
+        max-width: 100%;
+      }
     }
     @media (max-width: 576px) {
       .container {
@@ -934,10 +1014,13 @@
     <div class="overlay"></div>
     <div class="container">
       <div class="hero-buttons">
-        <a href="#projects" class="btn btn-primary">View My Projects</a>
         <a href="#experience" class="btn btn-success"><i class="fas fa-certificate"></i> View Certificate</a>
         <a href="#social" class="btn btn-contact">Connect With Me</a>
       </div>
+    </div>
+    <!-- Corner button at the base of home section -->
+    <div class="hero-corner-btn">
+      <a href="#projects" class="btn btn-primary"><i class="fas fa-arrow-right"></i> View My Projects</a>
     </div>
   </section>
 
@@ -972,7 +1055,7 @@
           </div>
         </div>
         <div class="about-skills">
-          <h3>My overall skills</h3>
+          <h3>My Skills</h3>
           <ul>
             <li>Structural Analysis & Design</li>
             <li>STAAD Pro & ETABS</li>
@@ -992,7 +1075,7 @@
   <!-- SKILLS -->
   <section id="skills" class="skills">
     <div class="container">
-      <h2 class="section-title">Technical Skills & Software</h2>
+      <h2 class="section-title">Technical Skills</h2>
       <div class="skills-grid" id="skillsGrid"></div>
     </div>
   </section>
@@ -1002,19 +1085,32 @@
     <div class="container">
       <h2 class="section-title">Featured Projects</h2>
       
-      <div class="filter-buttons">
-        <button class="btn-filter active" data-filter="all">All Projects</button>
-        <button class="btn-filter" data-filter="commercial">Commercial</button>
-        <button class="btn-filter" data-filter="residential">Residential</button>
-        <button class="btn-filter" data-filter="bridge">Bridge</button>
-        <button class="btn-filter" data-filter="highway">Highway</button>
-        <button class="btn-filter" data-filter="green">Green Building</button>
-        <button class="btn-filter" data-filter="foundation">Foundation</button>
-        <button class="btn-filter" data-filter="industrial">Industrial</button>
-        <button class="btn-filter" data-filter="posttension">Post Tension</button>
+      <div class="filter-container">
+        <!-- Search Bar -->
+        <div class="search-bar">
+          <i class="fas fa-search"></i>
+          <input type="text" id="projectSearch" placeholder="Search projects by title..." />
+        </div>
+        
+        <div class="filter-buttons">
+          <button class="btn-filter active" data-filter="all">All Projects</button>
+          <button class="btn-filter" data-filter="commercial">Commercial</button>
+          <button class="btn-filter" data-filter="residential">Residential</button>
+          <button class="btn-filter" data-filter="bridge">Bridge</button>
+          <button class="btn-filter" data-filter="highway">Highway</button>
+          <button class="btn-filter" data-filter="green">Green Building</button>
+          <button class="btn-filter" data-filter="foundation">Foundation</button>
+          <button class="btn-filter" data-filter="industrial">Industrial</button>
+          <button class="btn-filter" data-filter="posttension">Post Tension</button>
+        </div>
       </div>
 
       <div class="projects-grid" id="projectsGrid"></div>
+      
+      <!-- Load More Button -->
+      <div class="load-more-wrapper">
+        <button class="btn-load-more" id="loadMoreBtn"><i class="fas fa-plus-circle"></i> Load More Projects</button>
+      </div>
     </div>
   </section>
 
@@ -1161,7 +1257,6 @@
         { name: 'Team Work', icon: 'fa-users', color: '#2ecc71' },
       ];
 
-      // ALL Projects Combined (Previous + New)
       const projectsData = [
         {
           title: 'Commercial Complex Construction',
@@ -1262,25 +1357,52 @@
         skillsGrid.appendChild(div);
       });
 
-      // Render Projects with Filter
+      // ---------- PROJECTS WITH SEARCH + FILTER + LOAD MORE ----------
       const projectsGrid = document.getElementById('projectsGrid');
-      
-      function renderProjects(category = 'all') {
-        projectsGrid.innerHTML = '';
-        const filtered = category === 'all' ? projectsData : projectsData.filter(p => p.category === category);
+      const searchInput = document.getElementById('projectSearch');
+      const loadMoreBtn = document.getElementById('loadMoreBtn');
+      let currentCategory = 'all';
+      let visibleCount = 4; // Initial number of projects shown
+
+      // Function to get filtered projects based on category and search
+      function getFilteredProjects() {
+        const searchTerm = searchInput.value.toLowerCase().trim();
+        let filtered = projectsData;
         
-        if (filtered.length === 0) {
+        // Filter by category
+        if (currentCategory !== 'all') {
+          filtered = filtered.filter(p => p.category === currentCategory);
+        }
+        
+        // Filter by search term (title only)
+        if (searchTerm) {
+          filtered = filtered.filter(p => p.title.toLowerCase().includes(searchTerm));
+        }
+        
+        return filtered;
+      }
+
+      function renderProjects() {
+        const filtered = getFilteredProjects();
+        const total = filtered.length;
+        const toShow = Math.min(visibleCount, total);
+        const visibleProjects = filtered.slice(0, toShow);
+        
+        projectsGrid.innerHTML = '';
+        
+        if (visibleProjects.length === 0) {
           projectsGrid.innerHTML = `
             <div style="grid-column: 1/-1; text-align: center; padding: 60px; color: var(--text-light);">
               <i class="fas fa-search" style="font-size: 3rem; color: var(--primary-color);"></i>
               <h3 style="margin-top: 20px; color: var(--white);">No projects found</h3>
-              <p>Try selecting a different category</p>
+              <p>Try adjusting your search or filter</p>
             </div>
           `;
+          loadMoreBtn.style.display = 'none';
           return;
         }
         
-        filtered.forEach(p => {
+        visibleProjects.forEach(p => {
           const card = document.createElement('div');
           card.className = 'project-card';
           card.dataset.category = p.category;
@@ -1299,7 +1421,15 @@
           projectsGrid.appendChild(card);
         });
         
-        // Add animation to new cards
+        // Show/hide load more button
+        if (total > visibleCount) {
+          loadMoreBtn.style.display = 'inline-flex';
+          loadMoreBtn.innerHTML = `<i class="fas fa-plus-circle"></i> Load More (${visibleCount}/${total})`;
+        } else {
+          loadMoreBtn.style.display = 'none';
+        }
+        
+        // Animate cards
         const cards = projectsGrid.querySelectorAll('.project-card');
         cards.forEach((el, i) => {
           el.style.opacity = '0';
@@ -1317,13 +1447,29 @@
         btn.addEventListener('click', function() {
           filterButtons.forEach(b => b.classList.remove('active'));
           this.classList.add('active');
-          const category = this.dataset.filter;
-          renderProjects(category);
+          currentCategory = this.dataset.filter;
+          visibleCount = 4; // Reset visible count when filter changes
+          renderProjects();
         });
       });
 
+      // Search input
+      searchInput.addEventListener('input', function() {
+        visibleCount = 4; // Reset visible count when searching
+        renderProjects();
+      });
+
+      // Load More button
+      loadMoreBtn.addEventListener('click', function() {
+        const filtered = getFilteredProjects();
+        if (visibleCount < filtered.length) {
+          visibleCount += 4; // Load 4 more at a time
+          renderProjects();
+        }
+      });
+
       // Initial render
-      renderProjects('all');
+      renderProjects();
 
       // Render Experience
       const timeline = document.getElementById('timelineContainer');
@@ -1379,4 +1525,4 @@
     });
   </script>
 </body>
-  </html>
+</html>
