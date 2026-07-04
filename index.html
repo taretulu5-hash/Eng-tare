@@ -241,15 +241,16 @@
       cursor: pointer;
     }
 
-    /* ----- HERO - Bigger Photo, No Paragraph ----- */
+    /* ----- HERO - Full Picture Only ----- */
     .hero {
-      padding: 140px 0 80px;
+      padding: 100px 0 60px;
       background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #0d1b2a 100%);
       position: relative;
       overflow: hidden;
       min-height: 100vh;
       display: flex;
       align-items: center;
+      justify-content: center;
     }
     .hero::before {
       content: '';
@@ -280,27 +281,14 @@
       z-index: 1;
       text-align: center;
     }
-    .hero h1 {
-      font-size: 3.5rem;
-      margin-bottom: 10px;
-      color: var(--white);
-      font-weight: 700;
-    }
-    .hero h1 span {
-      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
     .hero-image {
       text-align: center;
-      margin-bottom: 25px;
     }
     .hero-image img {
-      max-width: 500px;
+      max-width: 600px;
       width: 100%;
       border-radius: 20px;
-      box-shadow: 0 0 50px rgba(74, 158, 255, 0.25), 0 30px 80px rgba(0, 0, 0, 0.6);
+      box-shadow: 0 0 60px rgba(74, 158, 255, 0.3), 0 30px 80px rgba(0, 0, 0, 0.6);
       object-fit: cover;
       aspect-ratio: 1/1;
       background: var(--dark-card);
@@ -309,7 +297,7 @@
     }
     .hero-image img:hover {
       border-color: var(--primary-color);
-      box-shadow: 0 0 70px rgba(74, 158, 255, 0.35), 0 30px 80px rgba(0, 0, 0, 0.6);
+      box-shadow: 0 0 80px rgba(74, 158, 255, 0.4), 0 30px 80px rgba(0, 0, 0, 0.6);
       transform: scale(1.02);
     }
     .hero-buttons {
@@ -317,7 +305,7 @@
       gap: 20px;
       flex-wrap: wrap;
       justify-content: center;
-      margin-top: 10px;
+      margin-top: 30px;
     }
 
     /* ----- ABOUT - Short Education & Internship ----- */
@@ -862,10 +850,7 @@
         align-items: center;
       }
       .hero-image img {
-        max-width: 400px;
-      }
-      .hero h1 {
-        font-size: 2.8rem;
+        max-width: 450px;
       }
     }
     @media (max-width: 768px) {
@@ -891,11 +876,8 @@
       .nav-toggle {
         display: block;
       }
-      .hero h1 {
-        font-size: 2.2rem;
-      }
       .hero-image img {
-        max-width: 320px;
+        max-width: 350px;
       }
       .hero-buttons {
         flex-direction: column;
@@ -946,10 +928,7 @@
         font-size: 0.95rem;
       }
       .hero-image img {
-        max-width: 280px;
-      }
-      .hero h1 {
-        font-size: 1.8rem;
+        max-width: 300px;
       }
     }
   </style>
@@ -976,13 +955,12 @@
     </div>
   </header>
 
-  <!-- HERO - Bigger Photo, No Paragraph -->
+  <!-- HERO - Full Picture Only, No Welcome Text -->
   <section id="home" class="hero">
     <div class="container">
       <div class="hero-image">
         <img src="1773502475241.png" alt="Tariku Tulu - Civil Engineer" id="profilePhoto" />
       </div>
-      <h1>Welcome, I'm <span>Eng Tariku Tulu</span></h1>
       <div class="hero-buttons">
         <a href="#projects" class="btn btn-primary">View My Projects</a>
         <a href="#experience" class="btn btn-success"><i class="fas fa-certificate"></i> View Certificate</a>
@@ -1429,4 +1407,4 @@
     });
   </script>
 </body>
-</html>
+                </html>
