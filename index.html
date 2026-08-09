@@ -259,10 +259,10 @@
       cursor: pointer;
     }
 
-    /* ----- HERO - Full Cover Image + Slogan Overlay ----- */
+    /* ----- HERO - minimized height + separate slogan bg ----- */
     .hero {
       position: relative;
-      min-height: 100vh;
+      min-height: 60vh;         /* minimized height */
       width: 100%;
       display: flex;
       align-items: center;
@@ -285,7 +285,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(10, 10, 10, 0.3);
+      background: rgba(10, 10, 10, 0.35);
       z-index: 1;
     }
     .hero .container {
@@ -298,14 +298,24 @@
       text-align: center;
       width: 100%;
       height: 100%;
-      padding: 100px 20px 80px;
+      padding: 100px 20px 60px;
     }
 
-    /* Slogan with gradient */
+    /* Slogan with separate background */
+    .hero-slogan-wrapper {
+      display: inline-block;
+      padding: 0.5rem 2.5rem;
+      background: rgba(10, 10, 10, 0.75);
+      backdrop-filter: blur(4px);
+      border-radius: 60px;
+      border: 1px solid rgba(74, 158, 255, 0.25);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+      margin-bottom: 0.75rem;
+    }
     .hero-slogan {
-      font-size: clamp(2.8rem, 10vw, 5.5rem);
+      font-size: clamp(2.4rem, 8vw, 4.2rem);
       font-weight: 900;
-      letter-spacing: 4px;
+      letter-spacing: 3px;
       background: linear-gradient(135deg, #f0b34b, #4a9eff, #f0b34b);
       background-size: 300% 300%;
       -webkit-background-clip: text;
@@ -313,7 +323,6 @@
       background-clip: text;
       animation: gradientShift 4s ease-in-out infinite;
       text-shadow: none;
-      margin-bottom: 0.5rem;
       line-height: 1.2;
     }
     @keyframes gradientShift {
@@ -322,12 +331,15 @@
       100% { background-position: 0% 50%; }
     }
     .hero-sub {
-      font-size: 1.2rem;
-      color: rgba(255,255,255,0.7);
-      letter-spacing: 6px;
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.8);
+      letter-spacing: 4px;
       font-weight: 300;
-      margin-top: 0.5rem;
       text-transform: uppercase;
+      background: rgba(0,0,0,0.3);
+      padding: 0.3rem 1.8rem;
+      border-radius: 40px;
+      backdrop-filter: blur(2px);
     }
 
     /* ----- ABOUT - Short Education & Internship ----- */
@@ -701,23 +713,9 @@
       font-weight: 700;
       margin-top: 10px;
     }
+    /* certificate download button removed */
     .cert-download-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin-top: 12px;
-      padding: 10px 20px;
-      background: linear-gradient(135deg, #2ecc71, #27ae60);
-      color: #fff;
-      border-radius: 8px;
-      font-weight: 600;
-      font-size: 0.9rem;
-      transition: var(--transition);
-    }
-    .cert-download-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(46, 204, 113, 0.4);
-      color: #fff;
+      display: none;
     }
 
     /* ----- LANGUAGE ABILITIES ----- */
@@ -1008,12 +1006,14 @@
     </div>
   </header>
 
-  <!-- HERO - Full Cover Image + Slogan -->
+  <!-- HERO - minimized height + separate slogan background -->
   <section id="home" class="hero">
     <img src="1773502475241.png" alt="Tariku Tulu - Civil Engineer" class="hero-bg" />
     <div class="overlay"></div>
     <div class="container">
-      <div class="hero-slogan">Design → Construct → Endure</div>
+      <div class="hero-slogan-wrapper">
+        <div class="hero-slogan">Design → Construct → Endure</div>
+      </div>
       <div class="hero-sub">Civil Engineering · Innovation · Excellence</div>
     </div>
   </section>
@@ -1040,7 +1040,7 @@
 
           <div class="about-links">
             <a href="#" class="btn btn-primary">Download Resume</a>
-            <a href="My internship certificate.pdf" download class="btn btn-success"><i class="fas fa-file-pdf"></i> Download Certificate</a>
+            <!-- Certificate download button removed -->
             <div class="social-links">
               <a href="https://www.linkedin.com/in/tariku-t-07a67033b?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
               <a href="https://t.me/engnr_tech" target="_blank" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
@@ -1472,14 +1472,10 @@
         item.className = 'timeline-item';
         
         let badgeHTML = '';
-        let downloadBtn = '';
+        // certificate download button removed entirely
         if (exp.certificate) {
           badgeHTML = `<div class="cert-badge"><i class="fas fa-certificate"></i> Certificate Received</div>`;
-          downloadBtn = `
-            <a href="My internship certificate.pdf" download class="cert-download-btn">
-              <i class="fas fa-file-pdf"></i> Download Certificate
-            </a>
-          `;
+          // download button omitted
         }
         
         item.innerHTML = `
@@ -1490,7 +1486,6 @@
             <h4 class="timeline-company">${exp.company}</h4>
             <p>${exp.description}</p>
             ${badgeHTML}
-            ${downloadBtn}
           </div>
         `;
         timeline.appendChild(item);
@@ -1519,4 +1514,4 @@
     });
   </script>
 </body>
-                                                                                       </html>
+  </html>
