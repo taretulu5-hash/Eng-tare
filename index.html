@@ -259,10 +259,10 @@
       cursor: pointer;
     }
 
-    /* ----- HERO - minimized height + separate slogan bg ----- */
+    /* ----- HERO - minimized height + separate slogan bg + phone left ----- */
     .hero {
       position: relative;
-      min-height: 60vh;         /* minimized height */
+      min-height: 60vh;
       width: 100%;
       display: flex;
       align-items: center;
@@ -301,7 +301,35 @@
       padding: 100px 20px 60px;
     }
 
-    /* Slogan with separate background */
+    /* Phone number on left corner above home */
+    .hero-phone {
+      position: absolute;
+      top: 30px;
+      left: 30px;
+      z-index: 10;
+      background: rgba(10,10,10,0.7);
+      backdrop-filter: blur(6px);
+      padding: 10px 20px;
+      border-radius: 40px;
+      border: 1px solid rgba(74,158,255,0.3);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--white);
+      font-weight: 500;
+      font-size: 1rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+      transition: var(--transition);
+    }
+    .hero-phone i {
+      color: var(--secondary-color);
+      font-size: 1.2rem;
+    }
+    .hero-phone:hover {
+      border-color: var(--primary-color);
+      transform: scale(1.02);
+    }
+
     .hero-slogan-wrapper {
       display: inline-block;
       padding: 0.5rem 2.5rem;
@@ -451,7 +479,7 @@
       font-size: 1.2rem;
     }
 
-    /* ----- SKILLS (software categorized) ----- */
+    /* ----- SKILLS (software categorized) - updated ----- */
     .skills {
       padding: 100px 0;
       background: var(--dark-color);
@@ -503,7 +531,7 @@
       font-weight: 500;
     }
 
-    /* ----- PROJECTS with Filter ----- */
+    /* ----- PROJECTS with Filter - updated to "My Work" ----- */
     .projects {
       padding: 100px 0;
       background: var(--dark-surface);
@@ -972,6 +1000,12 @@
       .search-bar {
         max-width: 100%;
       }
+      .hero-phone {
+        top: 20px;
+        left: 20px;
+        padding: 6px 14px;
+        font-size: 0.85rem;
+      }
     }
     @media (max-width: 576px) {
       .container {
@@ -994,6 +1028,16 @@
       .contact-info-item {
         font-size: 0.95rem;
       }
+      .hero-phone {
+        top: 15px;
+        left: 15px;
+        padding: 5px 12px;
+        font-size: 0.75rem;
+        gap: 6px;
+      }
+      .hero-phone i {
+        font-size: 0.9rem;
+      }
     }
   </style>
 </head>
@@ -1007,7 +1051,7 @@
           <li><a href="#home">Home</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#skills">Skills</a></li>
-          <li><a href="#projects">Projects</a></li>
+          <li><a href="#projects">My Work</a></li>
           <li><a href="#experience">Experience</a></li>
           <li><a href="#languages">Languages</a></li>
           <li><a href="#social">Social</a></li>
@@ -1019,10 +1063,15 @@
     </div>
   </header>
 
-  <!-- HERO -->
+  <!-- HERO with phone left -->
   <section id="home" class="hero">
     <img src="1773502475241.png" alt="Tariku Tulu - Civil Engineer" class="hero-bg" />
     <div class="overlay"></div>
+    <!-- Phone number left corner above home -->
+    <div class="hero-phone">
+      <i class="fas fa-phone-alt"></i>
+      <span>+251 947 112 256</span>
+    </div>
     <div class="container">
       <div class="hero-slogan-wrapper">
         <div class="hero-slogan">Design → Construct → Endure</div>
@@ -1031,7 +1080,7 @@
     </div>
   </section>
 
-  <!-- ABOUT -->
+  <!-- ABOUT (Core Competencies updated) -->
   <section id="about" class="about">
     <div class="container">
       <h2 class="section-title">About Me</h2>
@@ -1046,9 +1095,8 @@
 
           <h3><i class="fas fa-briefcase"></i> Internship Experience</h3>
           <div class="exp-item">
-            <strong>My Intern company </strong>
+            <strong>My Intern company</strong>
             <span>Ovid Construction PLC</span>
-          
           </div>
 
           <div class="about-links">
@@ -1060,23 +1108,27 @@
             </div>
           </div>
         </div>
+        <!-- Core Competencies updated to overall skills -->
         <div class="about-skills">
-          <h3>Core Competencies</h3>
+          <h3>Overall Skills</h3>
           <ul>
-            <li>Structural Analysis & Design</li>
-            <li>Quantity Surveying</li>
-            <li>Quality Control & Assurance</li>
+            <li>Structural Analysis &amp; Design (ETABS, STAAD, SAP2000)</li>
+            <li>Quantity Surveying &amp; Cost Estimation</li>
+            <li>Quality Control &amp; Assurance</li>
             <li>Construction Site Supervision</li>
-            <li>Project Coordination</li>
-            <li>Contract Documentation</li>
-            <li>Team Work</li>
+            <li>Project Coordination &amp; Management</li>
+            <li>Contract Documentation &amp; Bidding</li>
+            <li>AutoCAD, Revit, Civil 3D, ARCHICAD</li>
+            <li>Geotechnical Design &amp; Soil Analysis</li>
+            <li>Highway &amp; Transportation Design</li>
+            <li>Team Work &amp; Leadership</li>
           </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SKILLS (Categorized Software) -->
+  <!-- SKILLS (Software updated) -->
   <section id="skills" class="skills">
     <div class="container">
       <h2 class="section-title">Software Skills</h2>
@@ -1084,10 +1136,10 @@
     </div>
   </section>
 
-  <!-- PROJECTS with Filter -->
+  <!-- PROJECTS with Filter - title "My Work" -->
   <section id="projects" class="projects">
     <div class="container">
-      <h2 class="section-title">Featured Projects</h2>
+      <h2 class="section-title">My Work</h2>
       
       <div class="filter-container">
         <div class="search-bar">
@@ -1156,7 +1208,7 @@
       <div class="contact-info-box">
         <div class="contact-info-item">
           <i class="fas fa-phone"></i>
-          <span>+251 902 607 794</span>
+          <span>+251 947 112 256</span>
         </div>
         <div class="contact-info-item">
           <i class="fas fa-envelope"></i>
@@ -1240,42 +1292,41 @@
         });
       });
 
-      // ---------- DATA ----------
-      // Categorized software skills
+      // ---------- DATA (UPDATED) ----------
+      // Software skills - updated to reflect your skills
       const softwareCategories = [
         {
           name: 'Structural Analysis & Design',
           icon: 'fa-calculator',
-          items: ['ETABS', 'STAAD Pro', 'SAP2000','Robot structural analysis and design']
+          items: ['ETABS', 'STAAD Pro', 'SAP2000', 'Robot Structural Analysis']
         },
         {
-          name: 'Design of Highway & Transportation',
+          name: 'Highway & Transportation Design',
           icon: 'fa-road',
           items: ['AutoCAD Civil 3D']
         },
         {
           name: 'Construction Management & Planning',
           icon: 'fa-tasks',
-          items: ['Microsoft Project','Primavera P6']
+          items: ['Microsoft Project', 'Primavera P6']
         },
         {
           name: 'Architectural Drawing & BIM',
           icon: 'fa-building',
-          items: ['Revit', 'ARCHICAD', 'AutoCAD', 'SketchUp',]
+          items: ['Revit', 'ARCHICAD', 'AutoCAD', 'SketchUp']
         },
-        
         {
-          name: 'Geotechnical Design',
+          name: 'Geotechnical & Foundation Design',
           icon: 'fa-map',
-          items: [ 'SAFE']
+          items: ['SAFE', 'PLAXIS']
         }
       ];
 
-      // Projects data (unchanged)
+      // Projects data - updated to "My Work" with more relevant descriptions
       const projectsData = [
         {
-          title: 'Commercial Complex Construction',
-          description: 'Assisted in structural design and site supervision of a 12-story commercial building with parking facility during internship at Ovid Construction PLC.',
+          title: 'Commercial Complex – Ovid Construction',
+          description: 'Internship project: structural design and site supervision of a 12-story commercial building with parking. Assisted in quality control and material testing.',
           tags: ['Structural Design', 'Site Supervision', 'AutoCAD'],
           image: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=600&h=400&fit=crop&crop=center',
           category: 'commercial',
@@ -1283,8 +1334,8 @@
           codeLink: '#'
         },
         {
-          title: 'Residential Subdivision Development',
-          description: 'Participated in the development of 200+ residential units including road networks, drainage systems, and utility infrastructure.',
+          title: 'Residential Subdivision – 200+ Units',
+          description: 'Participated in development of residential units including road networks, drainage systems, and utility infrastructure. Used Civil 3D for grading and alignment.',
           tags: ['Site Development', 'Infrastructure', 'Civil 3D'],
           image: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=600&h=400&fit=crop&crop=center',
           category: 'residential',
@@ -1292,17 +1343,17 @@
           codeLink: '#'
         },
         {
-          title: 'Bridge Rehabilitation Project',
-          description: 'Academic project on structural assessment and rehabilitation of aging bridges using carbon fiber reinforcement techniques.',
+          title: 'Bridge Rehabilitation – CFRP Retrofit',
+          description: 'Academic project: structural assessment and rehabilitation of aging bridges using carbon fiber reinforced polymer (CFRP) techniques. STAAD Pro analysis.',
           tags: ['Bridge Engineering', 'Rehabilitation', 'STAAD Pro'],
-          image: 'bridge.jpg',
+          image: 'https://images.unsplash.com/photo-1519501025264-65ba15a82390?w=600&h=400&fit=crop&crop=center',
           category: 'bridge',
           liveLink: '#',
           codeLink: '#'
         },
         {
-          title: 'Highway Alignment Project',
-          description: 'Performed highway alignment and geometric design using AutoCAD Civil 3D for a 15km stretch of road.',
+          title: 'Highway Alignment – 15 km Design',
+          description: 'Performed highway alignment and geometric design using AutoCAD Civil 3D. Prepared cross-sections, profiles, and quantity take-off for a 15km road.',
           tags: ['Highway Design', 'Transportation', 'AutoCAD Civil 3D'],
           image: 'https://images.unsplash.com/photo-1519501025264-65ba15a82390?w=600&h=400&fit=crop&crop=center',
           category: 'highway',
@@ -1310,8 +1361,8 @@
           codeLink: '#'
         },
         {
-          title: 'Green Building Design',
-          description: 'Academic project focused on sustainable building design incorporating energy-efficient systems and locally sourced materials.',
+          title: 'Green Building – Sustainable Design',
+          description: 'Academic project focused on sustainable building design with energy-efficient systems, locally sourced materials, and LEED principles using Revit.',
           tags: ['Sustainable Design', 'Green Building', 'Revit'],
           image: 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?w=600&h=400&fit=crop&crop=center',
           category: 'green',
@@ -1319,8 +1370,8 @@
           codeLink: '#'
         },
         {
-          title: 'Foundation Design',
-          description: 'Comprehensive foundation design for high-rise buildings including shallow and deep foundations, soil analysis, and load-bearing capacity calculations.',
+          title: 'Foundation Design – High-Rise',
+          description: 'Comprehensive foundation design for high-rise buildings including shallow and deep foundations, soil analysis, and load-bearing capacity calculations using SAFE.',
           tags: ['Foundation', 'Soil Analysis', 'Load Bearing'],
           image: 'https://images.unsplash.com/photo-1574482620811-1aa16ffe61c4?w=600&h=400&fit=crop&crop=center',
           category: 'foundation',
@@ -1328,8 +1379,8 @@
           codeLink: '#'
         },
         {
-          title: 'Industrial Design',
-          description: 'Design of industrial structures including factories, warehouses, and heavy industrial facilities with focus on functionality and safety.',
+          title: 'Industrial Facility – Steel Structure',
+          description: 'Design of industrial structures including factories and warehouses with focus on functionality, safety, and cost optimization. Used STAAD Pro for steel design.',
           tags: ['Industrial', 'Steel Structures', 'Safety'],
           image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop&crop=center',
           category: 'industrial',
@@ -1337,8 +1388,8 @@
           codeLink: '#'
         },
         {
-          title: 'Post Tension Construction',
-          description: 'Post-tensioning system design and construction supervision for large-span structures including parking garages, bridges, and high-rise buildings.',
+          title: 'Post-Tension Parking Garage',
+          description: 'Post-tensioning system design and construction supervision for a large-span parking garage. Used post-tensioning software and performed site inspections.',
           tags: ['Post Tension', 'Prestressed', 'Construction'],
           image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&h=400&fit=crop&crop=center',
           category: 'posttension',
@@ -1525,4 +1576,4 @@
     });
   </script>
 </body>
-      </html>
+  </html>
