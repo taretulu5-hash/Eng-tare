@@ -259,7 +259,7 @@
       cursor: pointer;
     }
 
-    /* ----- HERO - minimized height + separate slogan bg + phone left ----- */
+    /* ----- HERO - minimized height + phone on right corner (circle badge) ----- */
     .hero {
       position: relative;
       min-height: 60vh;
@@ -301,33 +301,44 @@
       padding: 100px 20px 60px;
     }
 
-    /* Phone number on left corner above home */
-    .hero-phone {
+    /* Phone badge - right corner, circular */
+    .hero-phone-badge {
       position: absolute;
       top: 30px;
-      left: 30px;
+      right: 30px;
       z-index: 10;
-      background: rgba(10,10,10,0.7);
-      backdrop-filter: blur(6px);
-      padding: 10px 20px;
-      border-radius: 40px;
-      border: 1px solid rgba(74,158,255,0.3);
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: rgba(10, 10, 10, 0.75);
+      backdrop-filter: blur(8px);
+      border: 2px solid rgba(74, 158, 255, 0.5);
+      box-shadow: 0 0 30px rgba(74, 158, 255, 0.2);
       display: flex;
+      flex-direction: column;
       align-items: center;
-      gap: 12px;
+      justify-content: center;
       color: var(--white);
-      font-weight: 500;
-      font-size: 1rem;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
       transition: var(--transition);
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-align: center;
+      line-height: 1.2;
+      padding: 0 4px;
     }
-    .hero-phone i {
+    .hero-phone-badge i {
+      font-size: 1.6rem;
       color: var(--secondary-color);
-      font-size: 1.2rem;
+      margin-bottom: 2px;
     }
-    .hero-phone:hover {
+    .hero-phone-badge:hover {
+      transform: scale(1.08);
       border-color: var(--primary-color);
-      transform: scale(1.02);
+      box-shadow: 0 0 40px rgba(74, 158, 255, 0.4);
+    }
+    .hero-phone-badge .number {
+      font-size: 0.65rem;
+      letter-spacing: 0.5px;
     }
 
     .hero-slogan-wrapper {
@@ -531,7 +542,7 @@
       font-weight: 500;
     }
 
-    /* ----- PROJECTS with Filter - updated to "My Work" ----- */
+    /* ----- PROJECTS with Filter - title "My Work" ----- */
     .projects {
       padding: 100px 0;
       background: var(--dark-surface);
@@ -952,6 +963,18 @@
         flex-direction: column;
         align-items: center;
       }
+      .hero-phone-badge {
+        width: 70px;
+        height: 70px;
+        top: 20px;
+        right: 20px;
+      }
+      .hero-phone-badge i {
+        font-size: 1.3rem;
+      }
+      .hero-phone-badge .number {
+        font-size: 0.55rem;
+      }
     }
     @media (max-width: 768px) {
       .nav-list {
@@ -1000,11 +1023,17 @@
       .search-bar {
         max-width: 100%;
       }
-      .hero-phone {
-        top: 20px;
-        left: 20px;
-        padding: 6px 14px;
-        font-size: 0.85rem;
+      .hero-phone-badge {
+        width: 60px;
+        height: 60px;
+        top: 15px;
+        right: 15px;
+      }
+      .hero-phone-badge i {
+        font-size: 1.1rem;
+      }
+      .hero-phone-badge .number {
+        font-size: 0.5rem;
       }
     }
     @media (max-width: 576px) {
@@ -1028,15 +1057,18 @@
       .contact-info-item {
         font-size: 0.95rem;
       }
-      .hero-phone {
-        top: 15px;
-        left: 15px;
-        padding: 5px 12px;
-        font-size: 0.75rem;
-        gap: 6px;
+      .hero-phone-badge {
+        width: 55px;
+        height: 55px;
+        top: 12px;
+        right: 12px;
+        border-width: 1.5px;
       }
-      .hero-phone i {
-        font-size: 0.9rem;
+      .hero-phone-badge i {
+        font-size: 1rem;
+      }
+      .hero-phone-badge .number {
+        font-size: 0.45rem;
       }
     }
   </style>
@@ -1063,15 +1095,17 @@
     </div>
   </header>
 
-  <!-- HERO with phone left -->
+  <!-- HERO with phone badge right corner -->
   <section id="home" class="hero">
     <img src="1773502475241.png" alt="Tariku Tulu - Civil Engineer" class="hero-bg" />
     <div class="overlay"></div>
-    <!-- Phone number left corner above home -->
-    <div class="hero-phone">
+    
+    <!-- Phone badge - right corner circle -->
+    <div class="hero-phone-badge">
       <i class="fas fa-phone-alt"></i>
-      <span>+251 947 112 256</span>
+      <span class="number">+251 947 112 256</span>
     </div>
+
     <div class="container">
       <div class="hero-slogan-wrapper">
         <div class="hero-slogan">Design → Construct → Endure</div>
